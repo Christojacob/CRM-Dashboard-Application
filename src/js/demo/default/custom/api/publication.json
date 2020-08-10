@@ -1,0 +1,33 @@
+{
+    "meta": {
+        "page": 1,
+        "pages": 1,
+        "perpage": 10,
+        "total": 3,
+        "sort": "asc",
+        "field": "RecordID"
+    },
+    "data": [
+        {
+            "RecordID": 1,
+            "PublicationName": "Shalom Tidings",
+            "PublicationIssues":"24",
+            "Logo" : "./assets/app/media/img//products/shalom_tidings.svg",
+            "Status": 1
+        },
+        {
+            "RecordID": 1,
+            "PublicationName": "Shalom Times",
+            "PublicationIssues":"24",
+            "Logo" : "./assets/app/media/img//products/shalom_times.png",
+            "Status": 1
+        },
+        {
+            "RecordID": 1,
+            "PublicationName": "Sunday Shalom",
+            "PublicationIssues":"24",
+            "Logo" : "./assets/app/media/img//products/sunday_shalom.png",
+            "Status": 1
+        }
+    ]
+}

@@ -1,0 +1,181 @@
+<div class="tab-pane" id="m_user_profile_tab_2">
+    <div class="m-form">
+        <div class="m-portlet__body">
+            <div class="row align-items-center m--margin-bottom-10">
+                <div class="col-xl-8 order-2 order-xl-1">
+                </div>
+                <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                    <a href="" (click)="addInit()" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                        <span>
+                            <i class="la la-cart-plus"></i>
+                            <span>
+                                Add Member
+                            </span>
+                        </span>
+                    </a>
+                    <div class="m-separator m-separator--dashed d-xl-none"></div>
+                </div>
+            </div>
+            <!-- Begin Family tab -->
+            <div class="m-portlet m-portlet--primary m-portlet--head-solid-bg m-portlet--bordered">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <span class="m-portlet__head-icon">
+                                <i class="flaticon-users"></i>
+                            </span>
+                            <h3 class="m-portlet__head-text">
+                                Family Member
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="m_datatables" id="ajax_data"></div>
+            </div>
+            <!-- End of family tab -->
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="m_modal_5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Add Member
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="createForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+                    <!--begin: Form Body -->
+                    <div class="m-portlet__body">
+                        <div class="row">
+                            <div class="col-xl-8 offset-xl-2">
+                                <div class="m-form__section m-form__section--first">
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Relationship:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <select formControlName="RelationshipId" name="RelationshipId" class="form-control m-input">
+                                                <option value="0">Select Any</option>
+                                                <option *ngFor="let relationship of relationshipList" value="{{relationship.RecordID}}">{{relationship.RelationshipName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Salutation:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <select formControlName="SalutationId" name="SalutationId" class="form-control m-input">
+                                                <option value="0">Select Any</option>
+                                                <option *ngFor="let salutation of salutationList" value="{{salutation.RecordID}}">{{salutation.Salutation}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * First Name:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="FirstName" name="FirstName" class="form-control m-input"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Last Name:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="LastName" name="LastName" class="form-control m-input"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Mobile Number:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="MobileNumber" name="MobileNumber" class="form-control m-input"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Secondary Number:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="SecondaryNumber" name="SecondaryNumber"
+                                                class="form-control m-input" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Gender:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <select name="Gender" formControlName="Gender" class="form-control m-input">
+                                                <option value="0">Select Any</option>
+                                                <option value="1">Male</option>
+                                                <option value="2">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Dob:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <div class="input-group date">
+                                                <input type="text" class="form-control m-input" formControlName="Dob"
+                                                    placeholder="DOB" id="dob">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">
+                                                        <i class="la la-calendar-check-o"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Photo:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="file" (change)="fileChange($event)" required name="Photo"
+                                                class="form-control m-input" value="" #fileInput>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Email:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Email" name="Email" class="form-control m-input"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" (click)="create()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

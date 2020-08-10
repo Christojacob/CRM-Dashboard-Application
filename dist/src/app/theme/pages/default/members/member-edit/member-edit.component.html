@@ -1,0 +1,877 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title">
+                Member Profile
+            </h3>
+        </div>
+        <div>
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover"
+                aria-expanded="true">
+                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                    <i class="la la-plus m--hide"></i>
+                    <i class="la la-ellipsis-h"></i>
+                </a>
+                <div class="m-dropdown__wrapper">
+                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                    <div class="m-dropdown__inner">
+                        <div class="m-dropdown__body">
+                            <div class="m-dropdown__content">
+                                <ul class="m-nav">
+                                    <li class="m-nav__section m-nav__section--first m--hide">
+                                        <span class="m-nav__section-text">
+                                            Quick Actions
+                                        </span>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                            <span class="m-nav__link-text">
+                                                Activity
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                            <span class="m-nav__link-text">
+                                                Messages
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                            <span class="m-nav__link-text">
+                                                FAQ
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                            <span class="m-nav__link-text">
+                                                Support
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                    <li class="m-nav__item">
+                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                            Submit
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-xl-3 col-lg-4">
+            <div class="m-portlet m-portlet--full-height">
+                <div class="m-portlet__body">
+                    <div class="m-card-profile">
+                        <div class="m-card-profile__title m--hide">
+                            Member Profile
+                        </div>
+                        <div class="m-card-profile__pic">
+                            <div class="m-card-profile__pic-wrapper">
+                                <img src="./assets/app/media/img/users/user4.jpg" alt="" />
+                            </div>
+                        </div>
+                        <div class="m-card-profile__details">
+                            <span class="m-card-profile__name">
+                                {{salutationFind(mprofile.SalutationId) }} {{mprofile.FirstName | titlecase }} {{mprofile.LastName}}
+                            </span>
+                            <a href="" class="m-card-profile__email m-link">
+                                {{mprofile.Email}}
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="m-nav m-nav--hover-bg m-portlet-fit--sides">
+                        <li class="m-nav__separator m-nav__separator--fit"></li>
+                        <li class="m-nav__section m--hide">
+                            <span class="m-nav__section-text">
+                                Section
+                            </span>
+                        </li>
+                        <li class="m-nav__item">
+                            <a class="m-nav__link">
+                                <i class="m-nav__link-icon la la-phone"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Mobile
+                                        </span>
+                                        <span class="m-nav__link-badge">
+                                            <span>
+                                                {{mprofile.MobileNumber}}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a class="m-nav__link">
+                                <i class="m-nav__link-icon la la-mobile"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Secondary Mobile
+                                        </span>
+                                        <span class="m-nav__link-badge">
+                                            <span>
+                                                {{mprofile.SecondaryNumber}}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a class="m-nav__link">
+                                <i class="m-nav__link-icon la la-intersex"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Gender
+                                        </span>
+                                        <span class="m-nav__link-badge">
+                                            <span>
+                                                {{findGender(mprofile.Gender)}}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a class="m-nav__link">
+                                <i class="m-nav__link-icon la la-map-marker"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Country
+                                        </span>
+                                        <span class="m-nav__link-badge">
+                                            <span>
+                                                {{countryFind(mprofile.CountryId)}}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a class="m-nav__link">
+                                <i class="m-nav__link-icon la la-font"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Language
+                                        </span>
+                                        <span class="m-nav__link-badge">
+                                            <span>
+                                                {{languageFind(mprofile.PreferedLanguageOfCommunication)}}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="m-nav__item">
+                            <a class="m-nav__link">
+                                <i class="m-nav__link-icon la la-bell"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Communications
+                                        </span>
+                                        <span class="m-nav__link-badge">
+                                            <span>
+                                                {{contactFind(mprofile.PreferedModeOfContact)}}
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="m-portlet__body-separator"></div>
+                    <div class="m-widget1 m-widget1--paddingless">
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Member Profit
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                        Awerage Weekly Profit
+                                    </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-brand">
+                                        +$17,800
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Orders
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                        Weekly Customer Orders
+                                    </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-danger">
+                                        +1,800
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Issue Reports
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                        System bugs and issues
+                                    </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-success">
+                                        -27,49%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-8">
+            <div class="m-portlet m-portlet--full-height m-portlet--tabs">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-tools">
+                        <ul class="nav nav-tabs m-tabs m-tabs-line   m-tabs-line--left m-tabs-line--primary" role="tablist">
+                            <li class="nav-item m-tabs__item">
+                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#m_user_profile_tab_1" role="tab" (click)="resetAddress()">
+                                    <i class="flaticon-share m--hide"></i>
+                                    Update Profile
+                                </a>
+                            </li>
+                            <li class="nav-item m-tabs__item">
+                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_2" role="tab"  (click)="resetAddress()">
+                                    Address
+                                </a>
+                            </li>
+                            <li class="nav-item m-tabs__item">
+                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#m_user_profile_tab_3" role="tab"  (click)="resetAddress()">
+                                    Account Settings
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="m-portlet__head-tools">
+                        <ul class="m-portlet__nav">
+                            <li class="m-portlet__nav-item m-portlet__nav-item--last">
+                                <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover"
+                                    aria-expanded="true">
+                                    <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                                        <i class="la la-gear"></i>
+                                    </a>
+                                    <div class="m-dropdown__wrapper">
+                                        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                                        <div class="m-dropdown__inner">
+                                            <div class="m-dropdown__body">
+                                                <div class="m-dropdown__content">
+                                                    <ul class="m-nav">
+                                                        <li class="m-nav__section m-nav__section--first">
+                                                            <span class="m-nav__section-text">
+                                                                Quick Actions
+                                                            </span>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-share"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    Create Post
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    Send Messages
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-multimedia-2"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    Upload File
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__section">
+                                                            <span class="m-nav__section-text">
+                                                                Useful Links
+                                                            </span>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-info"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    FAQ
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__item">
+                                                            <a href="" class="m-nav__link">
+                                                                <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                                                <span class="m-nav__link-text">
+                                                                    Support
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="m-nav__separator m-nav__separator--fit m--hide"></li>
+                                                        <li class="m-nav__item m--hide">
+                                                            <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                                                Submit
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="m_user_profile_tab_1">
+                        <form [formGroup]="createForm" class="m-form m-form--fit m-form--label-align-right">
+                            <div class="m-portlet__body">
+                                <div class="form-group m-form__group m--margin-top-10 m--hide">
+                                    <div class="alert m-alert m-alert--default" role="alert">
+                                        The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional
+                                        classes.
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-10 ml-auto">
+                                        <h3 class="m-form__section">
+                                            1. Personal Details
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        Salutation
+                                    </label>
+                                    <div class="col-7">
+                                        <div class="input-group">
+                                            <select name="SalutationId" formControlName="SalutationId" [(ngModel)]="mprofile.SalutationId" class="form-control m-input">
+                                                <option value="0">Select Any</option>
+                                                <option *ngFor="let salutation of salutationList" value="{{salutation.RecordId}}">{{salutation.Salutation}}</option>
+                                            </select>
+                                        </div>
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Select any salutation
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        * First Name:
+                                    </label>
+                                    <div class="col-7">
+                                        <input type="text" formControlName="FirstName" [(ngModel)]="mprofile.FirstName" required name="FirstName" class="form-control m-input"
+                                            placeholder="Eg: Alex" value="">
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Please enter First Name
+                                        </span>
+                                        <span *ngIf="formError" class="m--font-danger" [hidden]="createForm.get('FirstName').valid && createForm.get('FirstName').dirty ">
+                                            Please enter FirstName
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        * Last Name:
+                                    </label>
+                                    <div class="col-7">
+                                        <input type="text" formControlName="LastName" [(ngModel)]="mprofile.LastName" required name="LastName" class="form-control m-input"
+                                            placeholder="Eg: George" value="">
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Please enter last name
+                                        </span>
+                                        <span *ngIf="formError" class="m--font-danger" [hidden]="createForm.get('LastName').valid && createForm.get('LastName').dirty ">
+                                            Please enter last name
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        * Photo:
+                                    </label>
+                                    <div class="col-7 row">
+                                        <div class="col-sm-7">
+                                            <input type="file" (change)="fileChange($event)" required name="Photo" class="form-control m-input" value="" #fileInput>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <a class="thumbnail">
+                                                <img src="{{photoUrl}}">
+                                            </a>
+                                            <label class="m-checkbox">
+                                                <input type="checkbox" formControlName="PhotoRemovedFlag" (change)="$event.target.checked ? (this.createForm.controls.PhotoRemovedFlag.setValue(1)) : this.createForm.controls.PhotoRemovedFlag.setValue(0)"> Remove photo
+                                                <span></span>
+                                            </label>
+                                        </div>
+
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Upload photo
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        * Mobile Number:
+                                    </label>
+                                    <div class="col-7">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="la la-phone"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" formControlName="MobileNumber" [(ngModel)]="mprofile.MobileNumber" required name="MobileNumber" class="form-control m-input"
+                                                placeholder="Eg: 9895000000" value="">
+                                        </div>
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Please enter mobile number
+                                        </span>
+                                        <span *ngIf="formError" class="m--font-danger" [hidden]="createForm.get('MobileNumber').valid && createForm.get('MobileNumber').dirty ">
+                                            Please enter mobile number
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        Secondary Mobile Number:
+                                    </label>
+                                    <div class="col-7">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <i class="la la-phone"></i>
+                                                </span>
+                                            </div>
+                                            <input type="text" formControlName="SecondaryNumber" [(ngModel)]="mprofile.SecondaryNumber" required name="SecondaryNumber"
+                                                class="form-control m-input" placeholder="Eg: 9895000000" value="">
+                                        </div>
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Please enter mobile number
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        Gender
+                                    </label>
+                                    <div class="col-7">
+                                        <div class="m-radio-inline">
+                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                <input type="radio" formControlName="Gender" [(ngModel)]="mprofile.Gender" value="1" [checked]=true> Male
+                                                <span></span>
+                                            </label>
+                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                <input type="radio" formControlName="Gender" [(ngModel)]="mprofile.Gender" value="2"> Female
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        Country
+                                    </label>
+                                    <div class="col-7">
+                                        <div class="input-group">
+                                            <select name="CountryId" formControlName="CountryId" [(ngModel)]="mprofile.CountryId" class="form-control m-input">
+                                                <option value="0">Select Any</option>
+                                                <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                            </select>
+                                        </div>
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Select any country option
+                                        </span>
+                                        <span *ngIf="formError" class="m--font-danger" [hidden]="createForm.get('CountryId').valid">
+                                            Select any country option
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        Status
+                                    </label>
+                                    <div class="col-7">
+                                        <div class="m-radio-inline">
+                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                <input type="radio" formControlName="Status" value="0"> Active
+                                                <span></span>
+                                            </label>
+                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                <input type="radio" formControlName="Status" value="1"> Disabled
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-10 ml-auto">
+                                        <h3 class="m-form__section">
+                                            2. Preference
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        Prefered Language Of Communication
+                                    </label>
+                                    <div class="col-7">
+                                        <div class="input-group">
+                                            <select name="PreferedLanguageOfCommunication" [(ngModel)]="mprofile.PreferedLanguageOfCommunication" formControlName="PreferedLanguageOfCommunication"
+                                                class="form-control m-input">
+                                                <option value="0">Select Any</option>
+                                                <option *ngFor="let language of languageList" value="{{language.RecordID}}">{{language.Language}}</option>
+                                            </select>
+                                        </div>
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Select any language
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-1"></div>
+                                    <div class="col-6 m-form__group-sub">
+                                        <label class="form-control-label">
+                                            Communications:
+                                        </label>
+                                        <div class="m-radio-inline">
+                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                <input type="radio" formControlName="PreferedModeOfContact" value=1 [checked]="createForm.get('PreferedModeOfContact').value == 1"> Email
+                                                <span></span>
+                                            </label>
+                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                <input type="radio" formControlName="PreferedModeOfContact" value=2 [checked]="createForm.get('PreferedModeOfContact').value == 2"> Phone
+                                                <span></span>
+                                            </label>
+                                            <label class="m-radio m-radio--solid m-radio--brand">
+                                                <input type="radio" formControlName="PreferedModeOfContact" value=3 [checked]="createForm.get('PreferedModeOfContact').value == 3"> SMS
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                        <span class="m-form__help">
+                                            Please select prefered contact method
+                                        </span>
+                                    </div>
+                                    <div class="col-5 m-form__group-sub">
+                                        <label class="form-control-label">
+                                            * DND settings:
+                                        </label>
+                                        <div class="m-checkbox-inline">
+                                            <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                                <input type="checkbox" formControlName="EmailOptutFlag" value=1 (change)="$event.target.checked ? (this.createForm.controls.EmailOptutFlag.setValue(1)) : this.createForm.controls.EmailOptutFlag.setValue(0)"> Email OptutFlag
+                                                <span></span>
+                                            </label>
+                                            <label class="m-checkbox m-checkbox--solid  m-checkbox--brand">
+                                                <input type="checkbox" formControlName="CallOptoutFlag" value=1 (change)="$event.target.checked ? (this.createForm.controls.CallOptoutFlag.setValue(1)) : this.createForm.controls.CallOptoutFlag.setValue(0)"> CallOptoutFlag
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                        <span class="m-form__help">
+                                            Please select do not disturb type
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="m-portlet__foot m-portlet__foot--fit">
+                                <div class="m-form__actions">
+                                    <div class="row">
+                                        <div class="col-2"></div>
+                                        <div class="col-7">
+                                            <button (click)="update()" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                                                Save changes
+                                            </button>
+                                            &nbsp;&nbsp;
+                                            <button class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="m_user_profile_tab_2">
+                        <form [formGroup]="AddressForm" class="m-form">
+                            <div class="m-portlet__body">
+                                <div class="m-form__section m-form__section--first">
+                                    <div class="form-group m-form__group">
+                                        <label for="example_input_full_name">
+                                        </label>
+                                        <div class="row">
+                                            <div class="col-lg-6" *ngFor="let address of mAddress">
+                                                <label class="m-option">
+                                                    <span class="m-option__label">
+                                                        <span class="m-option__head">
+                                                            <span class="m-option__title">
+                                                                {{address.AddressType}} Address
+                                                            </span>
+                                                            <span class="m-option__focus">
+                                                                <a href="" (click)="addressEdit(address.RecordId)">Edit</a>
+                                                            </span>
+                                                        </span>
+                                                        <span class="m-option__body">
+                                                            {{address.Address1}}, {{address.Address2}}
+                                                        </span>
+                                                        <span class="m-option__body">
+                                                            {{address.City}}, {{address.State}}, {{address.Country}}
+                                                        </span>
+                                                        <span class="m-option__body">
+                                                            {{address.Zip}}
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            Address type:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <div class="m-radio-inline">
+                                                <label class="m-radio m-radio--solid m-radio--brand">
+                                                    <input type="radio" formControlName="AddressType" value="1" [checked]="AddressForm.get('AddressType').value == 1"> Billing Address
+                                                    <span></span>
+                                                </label>
+                                                <label class="m-radio m-radio--solid m-radio--brand">
+                                                    <input type="radio" formControlName="AddressType" value="2" [checked]="AddressForm.get('AddressType').value == 2"> Shipping Address
+                                                    <span></span>
+                                                </label>
+                                                <label class="m-radio m-radio--solid m-radio--brand">
+                                                    <input type="radio" formControlName="AddressType" value="3" [checked]="AddressForm.get('AddressType').value == 3"> Both
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Address:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Address1" required name="Address1" class="form-control m-input" placeholder="Eg: Address line 1"
+                                                value="">
+                                            <span *ngIf="!formError" class="m-form__help">
+                                                Please enter address line 1
+                                            </span>
+                                            <span *ngIf="formError" class="m--font-danger" [hidden]="AddressForm.get('Address1').valid && AddressForm.get('Address1').dirty ">
+                                                Please enter address line 1
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Address2" required name="Address2" class="form-control m-input" placeholder="Eg: Address line 2"
+                                                value="">
+                                            <span *ngIf="!formError" class="m-form__help">
+                                                Please enter address line 2
+                                            </span>
+                                            <span *ngIf="formError" class="m--font-danger" [hidden]="AddressForm.get('Address2').valid && AddressForm.get('Address2').dirty ">
+                                                Please enter address line 2
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * City:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="City" required name="City" class="form-control m-input" placeholder="Eg: City" value="">
+                                            <span *ngIf="!formError" class="m-form__help">
+                                                Please enter city name
+                                            </span>
+                                            <span *ngIf="formError" class="m--font-danger" [hidden]="AddressForm.get('City').valid && AddressForm.get('City').dirty ">
+                                                Please enter city name
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            *Country:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <div class="input-group">
+                                                <select name="CountryId" formControlName="CountryId" class="form-control m-input" (change)="countryUpdate()">
+                                                    <option value="0">Select Any</option>
+                                                    <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                                </select>
+                                            </div>
+                                            <span *ngIf="!formError" class="m-form__help">
+                                                Select any country option
+                                            </span>
+                                            <span *ngIf="formError" class="m--font-danger" [hidden]="AddressForm.get('CountryId').valid">
+                                                Select any country option
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            *State:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <div class="input-group">
+                                                <select name="StateId" formControlName="StateId" class="form-control m-input">
+                                                    <option value="0">Select Any</option>
+                                                    <option *ngFor="let state of stateList" value="{{state.Id}}">{{state.Name}}</option>
+                                                </select>
+                                            </div>
+                                            <span *ngIf="!formError" class="m-form__help">
+                                                Select any state option
+                                            </span>
+                                            <span *ngIf="formError" class="m--font-danger" [hidden]="AddressForm.get('StateId').valid">
+                                                Select any state option
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Zip Code:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Zip" required name="Zip" class="form-control m-input" placeholder="Eg: 51200" value="">
+                                            <span *ngIf="!formError" class="m-form__help">
+                                                Please enter the zip code
+                                            </span>
+                                            <span *ngIf="formError" class="m--font-danger" [hidden]="AddressForm.get('Zip').valid && AddressForm.get('Zip').dirty ">
+                                                Please enter the zip code
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-portlet__foot m-portlet__foot--fit">
+                                <div class="m-form__actions">
+                                    <div class="row">
+                                        <div class="col-2"></div>
+                                        <div class="col-7">
+                                            <button (click)="addressSave()" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                                                Save changes
+                                            </button>
+                                            &nbsp;&nbsp;
+                                            <button class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="m_user_profile_tab_3">
+                        <form [formGroup]="createForm" class="m-form m-form--fit m-form--label-align-right">
+                            <div class="m-portlet__body">
+                                <div class="form-group m-form__group m--margin-top-10 m--hide">
+                                    <div class="alert m-alert m-alert--default" role="alert">
+                                        The example form below demonstrates common HTML form elements that receive updated styles from Bootstrap with additional
+                                        classes.
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <div class="col-10 ml-auto">
+                                        <h3 class="m-form__section">
+                                            1. Personal Details
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        New email:
+                                    </label>
+                                    <div class="col-7">
+                                        <input type="text" formControlName="FirstName" [(ngModel)]="mprofile.FirstName" required name="FirstName" class="form-control m-input"
+                                            placeholder="Eg: Alex" value="">
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Please enter Email Id
+                                        </span>
+                                        <span *ngIf="formError" class="m--font-danger" [hidden]="createForm.get('FirstName').valid && createForm.get('FirstName').dirty ">
+                                            Please enter Email Id
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-2 col-form-label">
+                                        Username:
+                                    </label>
+                                    <div class="col-7">
+                                        <input type="text" formControlName="LastName" [(ngModel)]="mprofile.LastName" required name="LastName" class="form-control m-input"
+                                            placeholder="Eg: George" value="">
+                                        <span *ngIf="!formError" class="m-form__help">
+                                            Please enter Username
+                                        </span>
+                                        <span *ngIf="formError" class="m--font-danger" [hidden]="createForm.get('LastName').valid && createForm.get('LastName').dirty ">
+                                            Please enter Username
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-portlet__foot m-portlet__foot--fit">
+                                <div class="m-form__actions">
+                                    <div class="row">
+                                        <div class="col-2"></div>
+                                        <div class="col-7">
+                                            <button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                                                Save changes
+                                            </button>
+                                            &nbsp;&nbsp;
+                                            <button type="reset" class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

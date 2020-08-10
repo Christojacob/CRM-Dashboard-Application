@@ -1,0 +1,580 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Edit Primary Country
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Settings
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Primary Country
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Edit Primary Country
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover"
+                aria-expanded="true">
+                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                    <i class="la la-plus m--hide"></i>
+                    <i class="la la-ellipsis-h"></i>
+                </a>
+                <div class="m-dropdown__wrapper">
+                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                    <div class="m-dropdown__inner">
+                        <div class="m-dropdown__body">
+                            <div class="m-dropdown__content">
+                                <ul class="m-nav">
+                                    <li class="m-nav__section m-nav__section--first m--hide">
+                                        <span class="m-nav__section-text">
+                                            Quick Actions
+                                        </span>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                            <span class="m-nav__link-text">
+                                                Activity
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                            <span class="m-nav__link-text">
+                                                Messages
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                            <span class="m-nav__link-text">
+                                                FAQ
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                            <span class="m-nav__link-text">
+                                                Support
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                    <li class="m-nav__item">
+                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                            Submit
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--full-height m-portlet--tabs">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-wrapper">
+                        <div class="m-portlet__head-tools">
+                            <ul class="nav nav-tabs  m-tabs-line" role="tablist">
+                                <li class="nav-item m-tabs__item">
+                                    <a class="nav-link m-tabs__link active" data-toggle="tab" href="#editCountryTab" (click)="selectedTab='edit'" role="tab">
+                                        Edit Primary Country
+                                    </a>
+                                </li>
+                                <li class="nav-item m-tabs__item">
+                                    <a class="nav-link m-tabs__link" data-toggle="tab" href="#paymentTab" (click)="selectedTab='payment'" role="tab">
+                                        Payment Settings
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="m-portlet__head-tools">
+                            <a routerLink="/setting/country" class="btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                                <span>
+                                    <i class="la la-arrow-left"></i>
+                                    <span>
+                                        Back
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-accent  m-btn m-btn--icon m-btn--wide m-btn--md" (click)="update()">
+                                    <span>
+                                        <i class="la la-check"></i>
+                                        <span>
+                                            Save
+                                        </span>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-accent  dropdown-toggle dropdown-toggle-split m-btn m-btn--md" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"></button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" (click)="update()">
+                                        <i class="la la-plus"></i>
+                                        Save & New
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="la la-copy"></i>
+                                        Save & Duplicate
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="la la-undo"></i>
+                                        Save & Close
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" routerLink="/setting/country">
+                                        <i class="la la-close"></i>
+                                        Cancel
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="m-portlet__head-tools">
+                        <ul class="nav nav-tabs  m-tabs-line" role="tablist">
+                            <li class="nav-item m-tabs__item">
+                                <a class="nav-link m-tabs__link active" data-toggle="tab" href="#editCountryTab" (click)="selectedTab='edit'" role="tab">
+                                    Edit Primary Country
+                                </a>
+                            </li>
+                            <li class="nav-item m-tabs__item">
+                                <a class="nav-link m-tabs__link" data-toggle="tab" href="#paymentTab" (click)="selectedTab='payment'" role="tab">
+                                    Payment Settings
+                                </a>
+                            </li>
+                        </ul>
+                        <a routerLink="/setting/country" class="btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                            <span>
+                                <i class="la la-arrow-left"></i>
+                                <span>
+                                    Back
+                                </span>
+                            </span>
+                        </a>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-accent  m-btn m-btn--icon m-btn--wide m-btn--md" (click)="update()">
+                                <span>
+                                    <i class="la la-check"></i>
+                                    <span>
+                                        Save
+                                    </span>
+                                </span>
+                            </button>
+                            <button type="button" class="btn btn-accent  dropdown-toggle dropdown-toggle-split m-btn m-btn--md" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"></button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" (click)="update()">
+                                    <i class="la la-plus"></i>
+                                    Save & New
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="la la-copy"></i>
+                                    Save & Duplicate
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="la la-undo"></i>
+                                    Save & Close
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" routerLink="/setting/country">
+                                    <i class="la la-close"></i>
+                                    Cancel
+                                </a>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="m-portlet__body">
+                    <div class="tab-content">
+                        <!-- Begin:: Tab content -->
+                        <div class="tab-pane active" id="editCountryTab" role="tabpanel">
+                            <!-- Begin:: Country editing form -->
+                            <form [formGroup]="createForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+                                <!-- <div class="m-form m-form--label-align-left- m-form--state-" id="m_form"> -->
+                                <!--begin: Form Body -->
+                                <div class="m-portlet__body">
+                                    <div class="row">
+                                        <div class="col-xl-8 offset-xl-2">
+                                            <div class="m-form__section m-form__section--first">
+                                                <div class="form-group m-form__group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        Primary Country:
+                                                    </label>
+                                                    <label class="col-xl-9 col-lg-9 col-form-label">
+                                                        {{PrimaryCountry.PrimaryCountryName}}
+                                                    </label>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        Linked Countries:
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9 col-form-label">
+                                                        <button type="button" class="btn btn-success btn-sm m--margin-right-5" *ngFor="let country of PrimaryCountry.LinkedCountry">
+                                                            {{country.LinkedCountryName}}
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        * Link countries:
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <input type="text" name="searchCountries" formControlName="SearchCountry" [(ngModel)]="searchText" class="form-control m-input"
+                                                            placeholder="Search Linked Country">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <div class="col-lg-4 col-xl-4" *ngFor="let country of countryLinkedList | country : searchText">
+                                                        <div class="m-checkbox-inline">
+                                                            <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                                                <input type="checkbox" value="{{country.Id}}" (change)="onChange(country.Id,country.CountryName, $event.target.checked)"
+                                                                    [checked]="LinkedExist(country.Id)"> {{country.CountryName}}
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__foot m-portlet__foot--fit">
+                                    <div class="m-form__actions">
+                                        <div class="row">
+                                            <div class="col-2"></div>
+                                            <div class="col-7">
+                                                <button (click)="update()" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+                                                    Save changes
+                                                </button>
+                                                &nbsp;&nbsp;
+                                                <button class="btn btn-secondary m-btn m-btn--air m-btn--custom">
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Begin::Payment settings form -->
+                        <div class="tab-pane" id="paymentTab" role="tabpanel">
+                            <form [formGroup]="paymentForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form2">
+                                <!--begin: Form Body -->
+                                <div class="m-portlet__body">
+                                    <div class="row">
+                                        <div class="m-form__section m-form__section--first col-md-12">
+                                            <div class="form-group m-form__group">
+                                                <label for="example_input_full_name">
+                                                </label>
+                                                <div class="row">
+                                                    <div class="col-lg-4" *ngFor="let PaySettings of PaymentSettingsList; let i = index;">
+                                                        <label class="m-option">
+                                                            <span class="m-option__label">
+                                                                <span class="m-option__head">
+                                                                    <span class="m-option__title">
+                                                                        {{PaySettings.PaymentMethod}}
+                                                                    </span>
+                                                                    <span class="m-option__focus">
+                                                                        <a href="" (click)="PaymentSettingsEdit(i)">Edit</a>
+                                                                    </span>
+                                                                </span>
+                                                                <span class="m-option__body">
+                                                                    {{PaySettings.PaymentGateway}}
+                                                                </span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-8 offset-xl-2" formArrayName="PaymentSettings" *ngFor="let option of paymentForm.get('PaymentSettings').controls; let i = index;">
+                                            <div class="m-form__section m-form__section--first" [formGroupName]="i">
+                                                <div class="form-group m-form__group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        Payment Method
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <div class="input-group">
+                                                            <select name="PaymentMethod" formControlName="PaymentMethodId" class="form-control m-input">
+                                                                <option value="0">Select Any</option>
+                                                                <option *ngFor="let method of paymentMethod" value="{{method.Id}}">{{method.Method}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <span *ngIf="!formError" class="m-form__help">
+                                                            Select any payment method
+                                                        </span>
+                                                        <span *ngIf="formError" class="m--font-danger" [hidden]="option.get('PaymentMethodId').valid">
+                                                            Select any payment method
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        Display method
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <label class="m-checkbox">
+                                                            <input type="checkbox" formControlName="IsBackendOnly" value="1" [checked]="option.get('IsBackendOnly').value == 1"
+                                                            (change)="$event.target.checked ? 
+                                                            paymentForm.get('PaymentSettings').at(i).controls.IsBackendOnly.setValue(1) : paymentForm.get('PaymentSettings').at(i).controls.IsBackendOnly.setValue(0)"
+                                                            > Is Backend Only
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        Payment Gateway
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <div class="input-group">
+                                                            <select name="Gateway" formControlName="GatewayId" (change)="gatewayUpdated(i)" class="form-control m-input">
+                                                                <option value="">Select Any</option>
+                                                                <option *ngFor="let gateway of paymentGateway" value="{{gateway.Id}}">{{gateway.PaymentGateway}}</option>
+                                                            </select>
+                                                        </div>
+                                                        <span *ngIf="!formError" class="m-form__help">
+                                                            Select any payment gateway
+                                                        </span>
+                                                        <span *ngIf="formError" class="m--font-danger" [hidden]="option.get('GatewayId').valid">
+                                                            Select any payment gateway
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" [hidden]="option.value.GatewayId==0">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        * Merchant ID:
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <input type="text" formControlName="MerchantId" name="merchantId" class="form-control m-input" placeholder="Eg: 5yrhxxxxxxxxxxxxxxxxx"
+                                                            value="">
+                                                        <span *ngIf="!formError" class="m-form__help">
+                                                            Please enter your merchant ID
+                                                        </span>
+                                                        <span *ngIf="formError" class="m--font-danger" [hidden]="option.get('MerchantId').valid">
+                                                            Please enter your merchant ID
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" [hidden]="option.value.GatewayId==0">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        * Public Key:
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <input type="text" formControlName="PublicKey" name="PublicKey" class="form-control m-input" placeholder="Eg: 5yrhxxxxxxxxxxxxxxxxx"
+                                                            value="">
+                                                        <span *ngIf="!formError" class="m-form__help">
+                                                            Please enter your public key
+                                                        </span>
+                                                        <span *ngIf="formError" class="m--font-danger" [hidden]="option.get('PublicKey').valid">
+                                                            Please enter your public key
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" [hidden]="option.value.GatewayId==0">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        * Secret:
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <input type="password" formControlName="Secret" name="Secret" class="form-control m-input" placeholder="Eg: xxxxx" value="">
+                                                        <span *ngIf="!formError" class="m-form__help">
+                                                            Please enter the payment secret code
+                                                        </span>
+                                                        <span *ngIf="formError" class="m--font-danger" [hidden]="option.get('Secret').valid">
+                                                            Please enter the payment secret code
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" [hidden]="option.value.GatewayId==0">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        Retry Frequency
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <div class="input-group">
+                                                            <input name="RetryFrequency" formControlName="RetryFrequency" class="form-control m-input" placeholder="Eg: 1 (In days)">
+                                                        </div>
+                                                        <span *ngIf="!formError" class="m-form__help">
+                                                            Enter the retry frequency
+                                                        </span>
+                                                        <span *ngIf="formError" class="m--font-danger" [hidden]="option.get('RetryFrequency').valid">
+                                                            Enter the retry frequency
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group" *ngIf="gatewayArray[i]=='brain_tree'">
+                                                    <div class="row">
+                                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                                            * Subscription plans:
+                                                        </label>
+                                                        <div class="col-xl-9 col-lg-9">
+                                                            <div formArrayName="SubscriptionPlan" *ngFor="let option2 of option.controls['SubscriptionPlan'].controls; let ex = index;">
+                                                                <div [formGroupName]="ex">
+                                                                    <div class="row">
+                                                                        <div class="col-md-5 m--margin-bottom-10">
+                                                                            <div class="m-form__group">
+                                                                                <div class="m-form__control">
+                                                                                    <select formControlName="FrequencyId" name="FrequencyId" class="form-control m-input">
+                                                                                        <option value="0">Select any</option>
+                                                                                        <option *ngFor="let frequency of FrequencyList" value="{{frequency.Id}}">{{frequency.RecurringFrequency}}</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-5 m--margin-bottom-10">
+                                                                            <div class="m-form__group">
+                                                                                <div class="m-form__control">
+                                                                                    <input type="text" formControlName="PlanId" class="form-control m-input" placeholder="Plan Id">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-2 m--margin-bottom-10">
+                                                                            <div class="btn-sm btn btn-danger m-btn m-btn--icon m-btn--pill" (click)="removeSubOption(ex)">
+                                                                                <span>
+                                                                                    <span>
+                                                                                        <i class="la la-close"></i>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group  m-form__group" *ngIf="gatewayArray[i]=='brain_tree'">
+                                                    <div class="col-md-3 offset-md-3">
+                                                        <div class="m-form__group form-group">
+                                                            <div (click)="addSubOption(i)" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide">
+                                                                <span>
+                                                                    <i class="la la-plus"></i>
+                                                                    <span>
+                                                                        Add
+                                                                    </span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" [hidden]="option.value.GatewayId!=0">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        * Bank Account Details
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                        <div class="input-group">
+                                                            <textarea name="BankAccountDetails" formControlName="BankAccountDetails" class="form-control m-input" placeholder="Eg: Ac No: 9797979797"></textarea>
+                                                        </div>
+                                                        <span *ngIf="!formError" class="m-form__help">
+                                                            Enter the bank account details
+                                                        </span>
+                                                        <span *ngIf="formError" class="m--font-danger" [hidden]="option.get('BankAccountDetails').valid">
+                                                            Enter the bank account details
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <label class="col-xl-3 col-lg-3 col-form-label">
+                                                        * Link countries:
+                                                    </label>
+                                                    <div class="col-xl-9 col-lg-9">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row">
+                                                    <div class="col-lg-4 col-xl-4" *ngFor="let country of PrimaryCountry.LinkedCountry">
+                                                        <div class="m-checkbox-inline">
+                                                            <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                                                <input type="checkbox" value="{{country.LinkedCountryId}}" (change)="onPayCountryChange(country.LinkedCountryId,country.CountryName, $event.target.checked,i)"
+                                                                    [checked]="LinkedExistPaySettings(country.LinkedCountryId)"> {{country.LinkedCountryName}}
+                                                                <span></span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group m-form__group row" *ngIf="!IsPaymentSettingsEdit">
+                                                    <div class="col-lg-11"></div>
+                                                    <div class="btn-sm btn btn-danger m-btn m-btn--icon m-btn--pill" (click)="removeOption(i)">
+                                                        <span>
+                                                            <i class="la la-trash-o"></i>
+                                                            <span>
+                                                                Delete
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-form__seperator m-form__seperator--dashed  m-form__seperator--space m--margin-bottom-40"></div>
+                                        </div>
+                                        <!-- End::Payment option repeation -->
+
+                                    </div>
+                                    <!-- Begin::Payment repeat add button -->
+                                    <div class="m-form__group form-group row" *ngIf="!IsPaymentSettingsEdit">
+                                        <label class="col-lg-4 col-form-label"></label>
+                                        <div class="col-lg-4">
+                                            <div (click)="addPaymentOption()" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide">
+                                                <span>
+                                                    <i class="la la-plus"></i>
+                                                    <span>
+                                                        Add Payment settings
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End::Payment repeat add button -->
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>

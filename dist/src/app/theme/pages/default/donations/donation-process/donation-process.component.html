@@ -1,0 +1,692 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Create Donation
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a routerLink="/donations" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Donations
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a routerLink="/donations" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Donations list
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Create Donation
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--last m-portlet--responsive-mobile" id="main_portlet">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-progress">
+                        <!-- here can place a progress bar-->
+                    </div>
+                    <div class="m-portlet__head-wrapper">
+                        <div class="m-portlet__head-caption">
+
+                        </div>
+                        <div class="m-portlet__head-tools">
+                            <a routerLink="/donations" class="btn btn-outline-primary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                                <span>
+                                    <i class="la la-arrow-left"></i>
+                                    <span>
+                                        Back
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary  m-btn m-btn--icon m-btn--wide m-btn--md">
+                                    <span>
+                                        <i class="la la-check"></i>
+                                        <span>
+                                            Save
+                                        </span>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-primary  dropdown-toggle dropdown-toggle-split m-btn m-btn--md" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"></button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item">
+                                        <i class="la la-plus"></i>
+                                        Save & New
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="la la-copy"></i>
+                                        Save & Duplicate
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="la la-undo"></i>
+                                        Save & Close
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" routerLink="/setting/country">
+                                        <i class="la la-close"></i>
+                                        Cancel
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <!-- <form [formGroup]="createForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form"> -->
+                    <div class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+                        <!--begin: Form Body -->
+                        <div class="m-portlet__body">
+                            <div class="form-group m-form__group row">
+                                <label class="col-form-label col-lg-2 col-sm-12">
+                                    Member
+                                </label>
+                                <div class="col-lg-4 col-md-9 col-sm-12">
+                                    <select #memSelect class="form-control m-select2" id="choose_member" name="param">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div *ngIf="this.memberId">
+                                <div class="form-group m-form__group row">
+                                    <label class="col-form-label col-lg-2 col-sm-12">
+                                        Aviliable Causes
+                                    </label>
+                                    <div class="col-lg-4 col-md-9 col-sm-12">
+                                        <select id= 'causeSelect' class="form-control m-bootstrap-select m-bootstrap-select--air m_selectpicker" title="Select Cause" name="CauseIndex"
+                                            [(ngModel)]="CauseIndex" (change)="CauseChanged()">
+                                            <option *ngFor="let cause of CauseLists; let i = index" value="{{i}}" [selected]="0">
+                                                {{cause.CauseName}}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group m-form__group row">
+                                    <label class="col-form-label col-lg-2 col-sm-12">
+                                    </label>
+                                    <div class="col-lg-10 col-sm-12">
+                                        <div class="m-portlet m-portlet--tabs m-portlet--primary m-portlet--head-solid-bg m-portlet--bordered">
+                                            <div class="m-portlet__head">
+                                                <div class="m-portlet__head-tools">
+                                                    <ul class="nav nav-tabs m-tabs-line m-tabs-line--primary" role="tablist">
+                                                        <li class="nav-item m-tabs__item">
+                                                            <a class="nav-link m-tabs__link active" data="m_tabs_12_1" role="tab">
+                                                                <i class="la la-cog"></i>
+                                                                Payment options
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item m-tabs__item">
+                                                            <a class="nav-link m-tabs__link" data="m_tabs_12_2" role="tab">
+                                                                <i class="la la-briefcase"></i>
+                                                                Payment process
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item m-tabs__item">
+                                                            <a class="nav-link m-tabs__link" role="tab" data="m_tabs_12_3">
+                                                                <i class="la la-bell-o"></i>
+                                                                Confirm payment
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="m-portlet__head-tools">
+                                                    <div class="btn-group" role="group" *ngIf="CauseIndex">
+                                                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                                            aria-expanded="false">
+                                                            {{CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].CurrencyCode}}
+                                                        </button>
+                                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                            <a class="dropdown-item" href="#" *ngFor="let PaymentOptions of CauseLists[CauseIndex].PaymentOptions; let k = index;" (click)="PaymentOptionIndex=k">
+                                                                {{PaymentOptions.CurrencyCode}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="m-portlet__body">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="m_tabs_12_1" role="tabpanel">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-sm-12">
+                                                                <div class="m-widget13">
+                                                                    <div class="m-widget13__item">
+                                                                        <span class="m-widget13__desc m--align-right">
+                                                                            Cause Name:
+                                                                        </span>
+                                                                        <span class="m-widget13__text m-widget13__text-bolder">
+                                                                            <span *ngIf="CauseIndex">{{CauseLists[CauseIndex].CauseName}}</span>
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="m-widget13__item">
+                                                                        <span class="m-widget13__desc m--align-right">
+                                                                            Description:
+                                                                        </span>
+                                                                        <span class="m-widget13__text">
+                                                                            <span *ngIf="CauseIndex">{{CauseLists[CauseIndex].Desc}}</span>
+                                                                        </span>
+                                                                    </div>
+                                                                    <span *ngIf="CauseIndex">
+                                                                        <div class="m-widget13__item" *ngIf="CauseLists[CauseIndex].AcceptAnyAmount!=0">
+                                                                            <span class="m-widget13__desc m--align-right">
+                                                                                Minimum Amount:
+                                                                            </span>
+                                                                            <span class="m-widget13__text m-widget13__text-bolder">
+                                                                                <span *ngIf="CauseIndex">{{CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].MinimumAmount}}</span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-sm-12">
+                                                                <div class="form-group m-form__group">
+                                                                    <label for="example_input_full_name">
+                                                                        Payment options:
+                                                                    </label>
+                                                                    <div class="row" *ngIf="CauseIndex">
+                                                                        <div class="col-lg-12" *ngFor="let PaymentOptionValues of CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].PaymentOptionValues; let r = index;">
+                                                                            <label class="m-option">
+                                                                                <span class="m-option__control">
+                                                                                    <span class="m-radio m-radio--brand m-radio--check-bold">
+                                                                                        <input type="radio" name="m_option_1" value="{{PaymentOptionValues.Amount}}" [(ngModel)]="Amount" (click)="PaymentOptionValueIndex=r">
+                                                                                        <span></span>
+                                                                                    </span>
+                                                                                </span>
+                                                                                <span class="m-option__label">
+                                                                                    <span class="m-option__head">
+                                                                                        <span class="m-option__title">
+                                                                                            {{PaymentOptionValues.PaymentOptionText}}
+                                                                                        </span>
+                                                                                        <span class="m-option__focus">
+                                                                                            {{PaymentOptionValues.Amount}}&nbsp;{{CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].CurrencyCode}}&nbsp;/&nbsp;{{PaymentOptionValues.RecurringFrequency}}
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="col-lg-12" *ngIf="CauseIndex && CauseLists[CauseIndex].AcceptAnyAmount!=0">
+                                                                            <label class="m-option">
+                                                                                <span class="m-option__control">
+                                                                                    <span class="m-radio m-radio--brand m-radio--check-bold">
+                                                                                        <input type="radio" name="m_option_1" value="{{AnyAmount}}" [(ngModel)]="Amount" (click)="elementRef.nativeElement.focus()">
+                                                                                        <span></span>
+                                                                                    </span>
+                                                                                </span>
+                                                                                <span class="m-option__label">
+                                                                                    <span class="m-option__head">
+                                                                                        <span class="m-option__title">
+                                                                                            Any Amount
+                                                                                        </span>
+                                                                                        <span class="m-option__focus">
+                                                                                            <div class="row">
+                                                                                                <div class="col-md-6">
+                                                                                                    <input type="text" class="form-control m-input m-input--solid" (keyup)="Amount=AnyAmount" [(ngModel)]="AnyAmount" style="width: 100px;display:inline-block;"
+                                                                                                        #AnyAmountInput>
+                                                                                                </div>
+                                                                                                <div class="col-md-6">
+                                                                                                    <select class="form-control m-input">
+                                                                                                        <option *ngFor="let frequency of frequencyList" value="{{frequency.Id}}">{{frequency.RecurringFrequency}}</option>
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </span>
+                                                                                    </span>
+                                                                                </span>
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="col-md-12">
+                                                                            <div class="m-form__actions m-form__actions m--align-right">
+                                                                                <button type="reset" class="btn btn-primary" (click)="nextStep(1,2)">
+                                                                                    Next
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- close of payment methods -->
+                                                    <!-- payment process tab -->
+                                                    <div class="tab-pane payment-process-tab" id="m_tabs_12_2" role="tabpanel">
+                                                        <div class="row">
+                                                            <!-- Payment left side buttons -->
+                                                            <div class="col-lg-3">
+                                                                <div class="btn-group-vertical btn-block m--margin-top-30" role="group" aria-label="Vertical button group">
+                                                                    <button type="button" class="btn" [ngClass]="[(j==PaymentMethodIndex)?'btn-metal':'btn-secondary']" *ngFor="let PaymentMethod of PaymentMethods; let j=index;"
+                                                                        (click)="PaymentMethodChange(j)">
+                                                                        {{PaymentMethod.PaymentMethod}}
+                                                                    </button>
+                                                                </div>
+                                                                <div class="back-button">
+                                                                    <div class="m-form__actions m-form__actions m--align-right">
+                                                                        <button class="btn btn-secondary" (click)="nextStep(2,1)">
+                                                                            back
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Close of Payment left side buttons -->
+                                                            <!-- Payment right side contents -->
+                                                            <div class="col-lg-9">
+                                                                <!-- Credit Card Option -->
+                                                                <!-- Brain tree nonce creation form -->
+                                                                <div *ngIf="PaymentMethods[PaymentMethodIndex]!=undefined&&PaymentMethods[PaymentMethodIndex].UniqueName=='credit_or_debt'">
+                                                                    <div [hidden]="!credit_step_1">
+                                                                        <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+                                                                            <!-- <div class="m-form__section m-form__section--first"> -->
+                                                                            <div class="form-group m-form__group">
+                                                                                <label for="example_input_full_name">
+                                                                                    Billing Address:
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="form-group m-form__group row">
+                                                                                <div class="col-lg-6 m--margin-bottom-5">
+                                                                                    <label>
+                                                                                        * Address:
+                                                                                    </label>
+                                                                                    <input type="text" name="Address1" class="form-control m-input" placeholder="Eg: Address line 1" value="" [(ngModel)]="PaymentFields.BillingAddress.Address1">
+                                                                                </div>
+                                                                                <div class="col-lg-6 m--margin-bottom-5">
+                                                                                    <label>
+                                                                                    </label>
+                                                                                    <input type="text" name="Address2" class="form-control m-input" placeholder="Eg: Address line 2" value="" [(ngModel)]="PaymentFields.BillingAddress.Address2">
+                                                                                </div>
+                                                                                <div class="col-lg-6 m--margin-bottom-5">
+                                                                                    <label>
+                                                                                        * City:
+                                                                                    </label>
+                                                                                    <input type="text" name="City" class="form-control m-input" placeholder="Eg: City" value="" [(ngModel)]="PaymentFields.BillingAddress.City">
+                                                                                </div>
+                                                                                <div class="col-lg-6 m--margin-bottom-5">
+                                                                                    <label>
+                                                                                        *Country:
+                                                                                    </label>
+                                                                                    <div class="input-group">
+                                                                                        <select name="CountryId" class="form-control m-bootstrap-select m_select_country" data-live-search="true" (change)="countryUpdate()"
+                                                                                            [(ngModel)]="PaymentFields.BillingAddress.CountryId"
+                                                                                            disabled>
+                                                                                            <option value="0">Select Any</option>
+                                                                                            <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6 m--margin-bottom-5">
+                                                                                    <label>
+                                                                                        *State:
+                                                                                    </label>
+                                                                                    <div class="input-group">
+                                                                                        <select name="StateId" class="form-control m-bootstrap-select m_select_state" data-live-search="true" [(ngModel)]="PaymentFields.BillingAddress.StateId">
+                                                                                            <option value="0">Select Any</option>
+                                                                                            <option *ngFor="let state of stateList" value="{{state.Id}}">{{state.Name}}</option>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6 m--margin-bottom-5">
+                                                                                    <label>
+                                                                                        * Zip Code:
+                                                                                    </label>
+                                                                                    <input type="text" name="Zip" class="form-control m-input" placeholder="Eg: 51200" value="" [(ngModel)]="PaymentFields.BillingAddress.Zip">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="form-group m-form__group row" *ngIf="CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].PaymentOptionValues[PaymentOptionValueIndex].RecurringFrequencyIdentifier!='one_time'">
+                                                                                <div class="col-lg-6">
+                                                                                    <label>
+                                                                                        Recurring Date
+                                                                                    </label>
+                                                                                    <select class="form-control m-bootstrap-select m-bootstrap-select--air m_select_day" name="BillingDate" [(ngModel)]="PaymentFields.BillingDate">
+                                                                                        <option *ngFor="let day of rangeArray">{{day}}</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col-lg-6">
+                                                                                    <label class="form-control-label">
+                                                                                        Payment:
+                                                                                    </label>
+                                                                                    <div class="m-checkbox-inline">
+                                                                                        <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                                                                            <input type="checkbox" name="PayNow" [(ngModel)]="PaymentFields.PayNow" value=1> PayNow
+                                                                                            <span></span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- </div> -->
+                                                                            <div class="m-form__actions m-form__actions m--align-right">
+                                                                                <button class="btn btn-primary" (click)="credit_step_1=!credit_step_1">
+                                                                                    Next
+                                                                                </button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                    <div [hidden]="credit_step_1">
+                                                                        <ngx-braintree [getClientToken]="getClientToken.bind(this)" [chargeAmount]="Amount" [createPurchase]="createPurchase.bind(this)">
+                                                                            <div class="ngxButtons">
+                                                                                <style>
+                                                                                    button {
+                                                                                        background-color: #5867dd;
+                                                                                        color: #ffffff;
+                                                                                        border: none;
+                                                                                        border-radius: 4px;
+                                                                                        height: 40px;
+                                                                                        line-height: 40px;
+                                                                                        font-size: 16px;
+                                                                                        cursor: pointer;
+                                                                                    }
+
+                                                                                    button:disabled {
+                                                                                        background-color: #5867dd;
+                                                                                        opacity: .65;
+                                                                                        color: #ffffff;
+                                                                                        border: none;
+                                                                                        border-radius: 4px;
+                                                                                        height: 40px;
+                                                                                        line-height: 40px;
+                                                                                        font-size: 16px;
+                                                                                        cursor: not-allowed;
+                                                                                    }
+
+                                                                                    .ngxButtons {
+                                                                                        padding: 30px;
+                                                                                        text-align: right;
+                                                                                    }
+                                                                                </style>
+                                                                                <button  ngxPay>Purchase</button>
+                                                                            </div>
+                                                                        </ngx-braintree>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- Close of Brain tree nonce creation form -->
+                                                                <!-- Close of Credit Card Option -->
+
+                                                                <!-- Bank transfer option -->
+                                                                <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed"  *ngIf="PaymentMethods[PaymentMethodIndex]!=undefined&&PaymentMethods[PaymentMethodIndex].UniqueName=='bank_transfer'" >
+                                                                    <div class="form-group m-form__group row">
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label for="example_input_full_name">
+                                                                                Received Date:
+                                                                            </label>
+                                                                            <div class="input-group date">
+                                                                                <input type="text" class="form-control m-input" placeholder="Enter Received Date" id="bank_transfer_received">
+                                                                                <div class="input-group-append">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="la la-calendar-check-o"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                Reference Number:
+                                                                            </label>
+                                                                            <input type="text" class="form-control m-input" name="ReferenceNumber" [(ngModel)]="PaymentFields.ReferenceNumber" placeholder="Enter Reference Number">
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5" *ngIf="CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].PaymentOptionValues[PaymentOptionValueIndex].RecurringFrequencyIdentifier!='one_time'">
+                                                                            <label>
+                                                                                Recurring Date
+                                                                            </label>
+                                                                            <select class="form-control m-bootstrap-select m-bootstrap-select--air m_select_day" name="BillingDate" [(ngModel)]="PaymentFields.BillingDate">
+                                                                                <option *ngFor="let day of rangeArray">{{day}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="m-form__actions m-form__actions m--align-right">
+                                                                        <button class="btn btn-primary" (click)="createPayment()">
+                                                                            Submit
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                                <!-- Close of bank transfer option -->
+
+                                                                <!-- Bank Check option -->
+                                                                <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed" *ngIf="PaymentMethods[PaymentMethodIndex]!=undefined&&PaymentMethods[PaymentMethodIndex].UniqueName=='check'">
+                                                                    <div class="form-group m-form__group row">
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label for="example_input_full_name">
+                                                                                Payment Received Date:
+                                                                            </label>
+                                                                            <div class="input-group date">
+                                                                                <input type="text" class="form-control m-input" placeholder="Enter Received Date" id="paymentReceivedDate" name="paymentReceivedDate"
+                                                                                    [(ngModel)]="PaymentFields.PaymentReceivedDate">
+                                                                                <div class="input-group-append">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="la la-calendar-check-o"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label for="example_input_full_name">
+                                                                                Check Date:
+                                                                            </label>
+                                                                            <div class="input-group date">
+                                                                                <input type="text" class="form-control m-input" placeholder="Enter Received Date" id="checkDate" name="CheckDate" [(ngModel)]="PaymentFields.CheckDate">
+                                                                                <div class="input-group-append">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="la la-calendar-check-o"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                Check Number:
+                                                                            </label>
+                                                                            <input type="text" class="form-control m-input" placeholder="Enter Check Number" name="CheckNumber" [(ngModel)]="PaymentFields.CheckNumber">
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                Check Image:
+                                                                            </label>
+                                                                            <input type="file" (change)="fileChange($event)" name="Photo" class="form-control m-input" value="" #fileInput>
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5" *ngIf="CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].PaymentOptionValues[PaymentOptionValueIndex].RecurringFrequencyIdentifier!='one_time'">
+                                                                            <label>
+                                                                                Recurring Date
+                                                                            </label>
+                                                                            <select class="form-control m-bootstrap-select m-bootstrap-select--air m_select_day" name="BillingDate" [(ngModel)]="PaymentFields.BillingDate">
+                                                                                <option *ngFor="let day of rangeArray">{{day}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="m-form__actions m-form__actions m--align-right">
+                                                                        <button class="btn btn-primary" (click)="createPayment()">
+                                                                            Submit
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                                <!-- Close of Bank Check option -->
+
+                                                                <!-- ACH option -->
+                                                                <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed" *ngIf="PaymentMethods[PaymentMethodIndex]!=undefined&&PaymentMethods[PaymentMethodIndex].UniqueName=='ach'" #donForm="ngForm" (submit)="donForm.reset()">
+                                                                    <div class="form-group m-form__group row">
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                AccountHolder:
+                                                                            </label>
+                                                                            <input type="text" class="form-control m-input" name="AccountHolder" [(ngModel)]="PaymentFields.AccountHolder" placeholder="AccountHolder">
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                AccountNumber:
+                                                                            </label>
+                                                                            <input type="text" class="form-control m-input" name="AccountNumber" [(ngModel)]="PaymentFields.AccountNumber" placeholder="AccountNumber">
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                RoutingNumber:
+                                                                            </label>
+                                                                            <input type="text" class="form-control m-input" name="RoutingNumber" [(ngModel)]="PaymentFields.RoutingNumber" placeholder="RoutingNumber">
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                Account Type:
+                                                                            </label>
+                                                                            <select class="form-control m-bootstrap-select m-bootstrap-select--air m_select_accountype" name="AccountType" [(ngModel)]="PaymentFields.AccountType">
+                                                                                <option value="checking">Checking</option>
+                                                                                <option value="saving">Saving</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group m-form__group">
+                                                                        <label for="example_input_full_name">
+                                                                            Billing Address:
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-group m-form__group row">
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                * Address:
+                                                                            </label>
+                                                                            <input type="text" name="Address1" class="form-control m-input" placeholder="Eg: Address line 1" value="" [(ngModel)]="PaymentFields.BillingAddress.Address1">
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                            </label>
+                                                                            <input type="text" name="Address2" class="form-control m-input" placeholder="Eg: Address line 2" value="" [(ngModel)]="PaymentFields.BillingAddress.Address2">
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                * City:
+                                                                            </label>
+                                                                            <input type="text" name="City" class="form-control m-input" placeholder="Eg: City" value="" [(ngModel)]="PaymentFields.BillingAddress.City">
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                *Country:
+                                                                            </label>
+                                                                            <div class="input-group">
+                                                                                <select name="CountryId" class="form-control m-bootstrap-select m_select_country" data-live-search="true" (change)="countryUpdate()"
+                                                                                    [(ngModel)]="PaymentFields.BillingAddress.CountryId"
+                                                                                    disabled>
+                                                                                    <option value="0">Select Any</option>
+                                                                                    <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                *State:
+                                                                            </label>
+                                                                            <div class="input-group">
+                                                                                <select name="StateId" class="form-control m-bootstrap-select m_select_state" data-live-search="true" [(ngModel)]="PaymentFields.BillingAddress.StateId">
+                                                                                    <option value="0">Select Any</option>
+                                                                                    <option *ngFor="let state of stateList" value="{{state.Id}}">{{state.Name}}</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                * Zip Code:
+                                                                            </label>
+                                                                            <input type="text" name="Zip" class="form-control m-input" placeholder="Eg: 51200" value="" [(ngModel)]="PaymentFields.BillingAddress.Zip">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group m-form__group row" *ngIf="CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].PaymentOptionValues[PaymentOptionValueIndex].RecurringFrequencyIdentifier!='one_time'">
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label class="form-control-label">
+                                                                                Payment:
+                                                                            </label>
+                                                                            <div class="m-checkbox-inline">
+                                                                                <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                                                                    <input type="checkbox" name="PayNow" [(ngModel)]="PaymentFields.PayNow" value=1> PayNow
+                                                                                    <span></span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label>
+                                                                                Recurring Date
+                                                                            </label>
+                                                                            <select class="form-control m-bootstrap-select m-bootstrap-select--air m_select_day" name="BillingDate" [(ngModel)]="PaymentFields.BillingDate">
+                                                                                <option *ngFor="let day of rangeArray">{{day}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="m-form__actions m-form__actions m--align-right">
+                                                                        <button class="btn btn-primary" (click)="createPayment()">
+                                                                            Submit
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                                <!-- Close of ACH option -->
+
+                                                                <!-- Cash option -->
+                                                                <form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed" *ngIf="PaymentMethods[PaymentMethodIndex]!=undefined&&PaymentMethods[PaymentMethodIndex].UniqueName=='cash'">
+                                                                    <div class="form-group m-form__group row">
+                                                                        <div class="col-lg-6 m--margin-bottom-5">
+                                                                            <label for="example_input_full_name">
+                                                                                Received Date:
+                                                                            </label>
+                                                                            <div class="input-group date">
+                                                                                <input type="text" class="form-control m-input" placeholder="Enter Received Date" id="cashReceivedDate">
+                                                                                <div class="input-group-append">
+                                                                                    <span class="input-group-text">
+                                                                                        <i class="la la-calendar-check-o"></i>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-lg-6 m--margin-bottom-5" *ngIf="CauseLists[CauseIndex].PaymentOptions[PaymentOptionIndex].PaymentOptionValues[PaymentOptionValueIndex].RecurringFrequencyIdentifier!='one_time'">
+                                                                            <label>
+                                                                                Recurring Date
+                                                                            </label>
+                                                                            <select class="form-control m-bootstrap-select m-bootstrap-select--air m_select_day" name="BillingDate" [(ngModel)]="PaymentFields.BillingDate">
+                                                                                <option *ngFor="let day of rangeArray">{{day}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="m-form__actions m-form__actions m--align-right">
+                                                                        <button class="btn btn-primary" (click)="createPayment()">
+                                                                            Submit
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                                <!-- Close of Cash option -->
+                                                            </div>
+                                                            <!-- Close of Payment right side contents -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>

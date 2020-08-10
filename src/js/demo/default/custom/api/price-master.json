@@ -1,0 +1,78 @@
+{
+    "meta": {
+        "page": 1,
+        "pages": 1,
+        "perpage": 10,
+        "total": 6,
+        "sort": "asc",
+        "field": "RecordID"
+    },
+    "data": [
+        {
+            "RecordID": 1,
+            "RecodeName": "Shalom Tidings",
+            "CountryCode":"USA",
+            "CountryName":"USA",
+            "Duration":"2",
+            "DurationType":"year",
+            "Price" : "24",
+            "CurrencyCode":"USD",
+            "Status": 1
+        },
+        {
+            "RecordID": 2,
+            "RecodeName": "Shalom Times",
+            "CountryCode":"USA",
+            "CountryName":"USA",
+            "Duration":"2",
+            "DurationType":"year",
+            "Price" : "24",
+            "CurrencyCode":"USD",
+            "Status": 1
+        },
+        {
+            "RecordID": 3,
+            "RecodeName": "Sunday Shalom",
+            "CountryCode":"EUR",
+            "CountryName":"USA",
+            "Duration":"2",
+            "DurationType":"year",
+            "Price" : "24",
+            "CurrencyCode":"USD",
+            "Status": 1
+        },
+        {
+            "RecordID": 4,
+            "RecodeName": "Sunday Shalom & Shalom Tidings",
+            "CountryCode":"CAN",
+            "CountryName":"USA",
+            "Duration":"2",
+            "DurationType":"year",
+            "Price" : "24",
+            "CurrencyCode":"USD",
+            "Status": 1
+        },
+        {
+            "RecordID": 5,
+            "RecodeName": "Shalom Tidings",
+            "CountryCode":"USA",
+            "CountryName":"USA",
+            "Duration":"2",
+            "DurationType":"year",
+            "Price" : "24",
+            "CurrencyCode":"USD",
+            "Status": 1
+        },
+        {
+            "RecordID": 6,
+            "RecodeName": "Sunday Shalom & Shalom Times",
+            "CountryCode":"USA",
+            "CountryName":"USA",
+            "Duration":"2",
+            "DurationType":"year",
+            "Price" : "24",
+            "CurrencyCode":"USD",
+            "Status": 1
+        }
+    ]
+}

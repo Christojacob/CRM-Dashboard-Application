@@ -1,0 +1,401 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Price Management
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a routerLink="/members" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Publication
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Price Management
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover"
+                aria-expanded="true">
+                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                    <i class="la la-plus m--hide"></i>
+                    <i class="la la-ellipsis-h"></i>
+                </a>
+                <div class="m-dropdown__wrapper">
+                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                    <div class="m-dropdown__inner">
+                        <div class="m-dropdown__body">
+                            <div class="m-dropdown__content">
+                                <ul class="m-nav">
+                                    <li class="m-nav__section m-nav__section--first m--hide">
+                                        <span class="m-nav__section-text">
+                                            Quick Actions
+                                        </span>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                            <span class="m-nav__link-text">
+                                                Activity
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                            <span class="m-nav__link-text">
+                                                Messages
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                            <span class="m-nav__link-text">
+                                                FAQ
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                            <span class="m-nav__link-text">
+                                                Support
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                    <li class="m-nav__item">
+                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                            Submit
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--last m-portlet--responsive-mobile" id="main_portlet">
+                    <div class="m-portlet__body">
+                            <div class="m-portlet__body">
+                                    <div class="form-group m-form__group row">
+                                            <label class="col-lg-1 col-form-label">
+                                                Price Type:
+                                            </label>
+                                            <div class="col-xl-3 col-lg-3">
+                                                <div class="input-group">
+                                                    <select name="PriceType"  class="form-control m-input" disabled>
+                                                        <option value="2">Combo</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                            </div>
+
+                          
+
+                    </div>
+                    <div class="m-portlet__body">
+                        <form [formGroup]="createForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+                                <!--begin: Form Body -->
+                                <div class="m-portlet__body">
+                                
+                                    <div class="form-group m-form__group row">
+                                        
+                                        <label class="col-xl-1 col-lg-1 col-form-label">
+                                                Edition:
+                                        </label>
+                                        <div class="col-xl-3 col-lg-3">
+                                            <div class="input-group">
+                                                <select name="Edition" formControlName="Edition" class="form-control  m-bootstrap-select m_select_country" (change)="getPublication($event.target.value)"  data-live-search="true">
+                                                    <option value="">Select</option>
+                                                    <option *ngFor="let country of primaryCountry" value="{{country.Id}}" >{{country.Name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <label class="col-lg-1 col-form-label">
+                                            Publication:
+                                        </label>
+                                        <div class="col-xl-3 col-lg-3">
+                                            <div class="input-group">
+                                                <select name="Publication" formControlName="Publication" class="form-control m-select2 m_select_language"  multiple="multiple">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 
+                                    
+                                    <!-- form array -->
+                                    <div  formArrayName="PriceGrid">
+                                        <div [formGroupName]="i"
+                                        *ngFor="let priceGrid of createForm.controls.PriceGrid.controls; let i = index">
+                                        <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                            <div class="m-form__heading">
+                                                <h3 class="m-form__heading-title">
+                                                    Price Grid
+                                                    <i data-toggle="m-tooltip" data-width="auto" class="m-form__heading-help-icon flaticon-info" title="Some help text goes here"></i> 
+                                                    <div class="btn btn-danger m-btn btn-sm 	m-btn m-btn--icon m-btn--pill" *ngIf="i!=0" (click)="removePriceGridField(i)" >
+                                                            <span>
+                                                                <i class="la la-remove"></i>
+                                                                <span>
+                                                                    Remove
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                         
+                                                </h3>
+                                            </div>
+                                            <div class="form-group m-form__group row">
+                                                <label class="col-lg-1 col-form-label">
+                                                    Country:
+                                                </label>
+                                                <div class="col-xl-3 col-lg-3">
+                                                    <div class="input-group">
+                                                        <select name="CountryId" formControlName="CountryId" class="form-control m-bootstrap-select m_select_available_country" data-live-search="true">
+                                                            <option value="">Select Any</option>
+                                                            <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.CountryName}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <label class="col-lg-1 col-form-label">
+                                                    Currency:
+                                                </label>
+                                                <div class="col-xl-3 col-lg-3">
+                                                    <div class="input-group">
+                                                        <select name="CurrencyISOCode" formControlName="CurrencyISOCode" class="form-control m-bootstrap-select m_select_currency" data-live-search="true">
+                                                            <option value="">Select Any</option>
+                                                            <option *ngFor="let currency of currencyList" value="{{currency.CurrencyCode}}">{{currency.CurrencyText}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- start price list -->
+                                           
+                                            <div formArrayName="PriceList">
+                                             <!-- form array -->
+                                             <div [formGroupName]="j"
+                                             *ngFor="let PriceList of priceGrid.controls.PriceList.controls; let j = index">
+                                            <div class="m-separator m-separator--solid m-separator--lg"></div>
+                        
+                                            <div class="form-group m-form__group row">
+                                                <label class="col-lg-1 col-form-label">
+                                                    Duration:
+                                                </label>
+                                                <div class="col-xl-2 col-lg-2">
+                                                    <div class="input-group">
+                                                            <input type="text" formControlName="Duration" required name="Duration" class="form-control m-input" placeholder="Duration" value="">
+                                                    </div>
+                                                </div>
+                        
+                                                <label class="col-lg-1 col-form-label">
+                                                    Duration Type:
+                                                </label>
+                                                <div class="col-xl-2 col-lg-2">
+                                                    <div class="input-group">
+                                                        <select name="DurationType" formControlName="DurationType" class="form-control m-input">
+                                                            <option value="">Select</option>
+                                                            <option value="1">Digital</option>
+                                                            <option value="2">Print</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                        
+                                                <label class="col-lg-1 col-form-label">
+                                                    Coupon Code:
+                                                </label>
+                                                <div class="col-xl-3 col-lg-3">
+                                                    <div class="input-group">
+                                                        <input type="text" formControlName="CouponCode"  name="CouponCode" class="form-control m-input" placeholder="Coupon Code" value="">
+                                                    </div>
+                                                </div>
+                        
+                                                <div class="col-xl-2 col-lg-2">
+                                                    <div class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide" >
+                                                            <span>
+                                                                <i class="la la-plus"></i>
+                                                                <span>
+                                                                    Add new coupon
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                </div>    
+                                            </div>
+                        
+                                            <div class="m-form__heading">
+                                            <h5 class="m-form__heading-title">
+                                                Publication
+                                                <!-- <i data-toggle="m-tooltip" data-width="auto" class="m-form__heading-help-icon flaticon-info" title="Some help text goes here"></i>     -->
+                                                 <div href="#" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill" (click)="removePriceListFiled(priceGrid.controls.PriceList,j)" *ngIf="j!=0">
+                                                        <i class="la la-remove"></i>
+                                                    </div>
+                                            </h5>
+                                           </div>
+                                                    
+                                            <div class="custom-form-group-headings row">
+                                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                                  Publication
+                                                </label>
+                                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                                   Format
+                                                 </label>
+                                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                                    Price
+                                                </label>
+                                            </div>
+                        
+                                            <div formArrayName="PriceSplit">
+                                                <div class="custom-row-repeat row" [formGroupName]="k"
+                                                *ngFor="let PriceSplit of PriceList.controls.PriceSplit.controls; let k = index">
+                                                    <div class="col-xl-2 col-lg-2">
+                                                            <select name="PublicationId" formControlName="PublicationId" class="form-control m-bootstrap-select m_select_publcation_ch">
+                                                                    <option value="">Select</option>
+                                                                    <option *ngFor="let publication of publicationList"  [value]="publication.Id" >{{publication.PublicationName}}</option>
+                                                                </select>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                            <select name="Format" formControlName="Format" class="form-control m-bootstrap-select m_select_format m-input">
+                                                                    <option value="">Select</option>
+                                                                    <option value="1">Digital</option>
+                                                                    <option value="2">Print</option>
+                                                                </select>
+                                                    </div>
+                                                    <div class="col-xl-2 col-lg-2">
+                                                        <input type="text" formControlName="Price" required name="Price" class="form-control m-input" placeholder="Price" value="">
+                                                    </div>
+                                                    
+                        
+                                                    <div class="col-xl-1 col-lg-1" *ngIf="k!=0">
+                                                            <div href="#" class="btn btn-danger m-btn m-btn--icon btn-sm m-btn--icon-only m-btn--pill" (click)="removePriceSplitFiled(PriceList.controls.PriceSplit,k)" *ngIf="k!=0">
+                                                                    <i class="la la-remove"></i>
+                                                                </div>
+                                                            
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m--align-right">
+                                                    <div class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide" (click)="addPriceSplitFiled(PriceList.controls.PriceSplit)" >
+                                                        <span>
+                                                            <i class="la la-plus"></i>
+                                                            <span>
+                                                                Add More 
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                                <!-- end form array -->
+                                                 <div class="col-12 m--align-right">
+                                                        <div class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide" (click)="addPriceListFiled(priceGrid.controls.PriceList)" >
+                                                            <span>
+                                                                <i class="la la-plus"></i>
+                                                                <span>
+                                                                    Add More Publication
+                                                                </span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                                <!-- end price list -->
+                                        </div>
+                                </div>
+                                    <div class="form-group m-form__group row">
+                                        <div class="col-4 m--align-left">
+                                            <div class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide" (click)="addPriceGridField()">
+                                                <span>
+                                                    <i class="la la-plus"></i>
+                                                    <span>
+                                                        Add
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                            <div class="m-portlet__head">
+                                    <div class="m-portlet__head-progress">
+                                        <!-- here can place a progress bar-->
+                                    </div>
+                                    <div class="m-portlet__head-wrapper">
+                                        <div class="m-portlet__head-caption">
+                        
+                                        </div>
+                                        <div class="m-portlet__head-tools">
+                                            <a routerLink="/publications/price_management" class="btn btn-outline-primary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                                                <span>
+                                                    <i class="la la-arrow-left"></i>
+                                                    <span>
+                                                        Back
+                                                    </span>
+                                                </span>
+                                            </a>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary  m-btn m-btn--icon m-btn--wide m-btn--md" (click)="create()">
+                                                    <span>
+                                                        <i class="la la-check"></i>
+                                                        <span>
+                                                            Save
+                                                        </span>
+                                                    </span>
+                                                </button>
+                                                <button type="button" class="btn btn-primary  dropdown-toggle dropdown-toggle-split m-btn m-btn--md" data-toggle="dropdown"
+                                                    aria-haspopup="true" aria-expanded="false"></button>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item">
+                                                        <i class="la la-plus"></i>
+                                                        Save & New
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="la la-copy"></i>
+                                                        Save & Duplicate
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                        <i class="la la-undo"></i>
+                                                        Save & Close
+                                                    </a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" routerLink="/publications/price_management">
+                                                        <i class="la la-close"></i>
+                                                        Cancel
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>

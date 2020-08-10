@@ -1,0 +1,27 @@
+.m-content {
+    .advanced-search-box{
+        span {
+            padding-right: 5px;
+        }
+        .la{
+            font-size: 10px !important;
+        }
+    }
+}
+
+.payment-process-tab{
+    .row{
+        .col-lg-3{
+            position: relative;
+
+            .back-button{
+                bottom: 0;
+                position: absolute;
+            }
+        }
+
+        .col-lg-9{
+            min-height: 300px;
+        }
+    }
+}

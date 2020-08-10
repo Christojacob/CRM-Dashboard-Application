@@ -1,0 +1,375 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title m-subheader__title--separator">
+                Add Publication
+            </h3>
+            <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+                <li class="m-nav__item m-nav__item--home">
+                    <a href="#" class="m-nav__link m-nav__link--icon">
+                        <i class="m-nav__link-icon la la-home"></i>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a routerLink="/members" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Publication
+                        </span>
+                    </a>
+                </li>
+                <li class="m-nav__separator">
+                    -
+                </li>
+                <li class="m-nav__item">
+                    <a href="" class="m-nav__link">
+                        <span class="m-nav__link-text">
+                            Add Publication
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover"
+                aria-expanded="true">
+                <a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+                    <i class="la la-plus m--hide"></i>
+                    <i class="la la-ellipsis-h"></i>
+                </a>
+                <div class="m-dropdown__wrapper">
+                    <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+                    <div class="m-dropdown__inner">
+                        <div class="m-dropdown__body">
+                            <div class="m-dropdown__content">
+                                <ul class="m-nav">
+                                    <li class="m-nav__section m-nav__section--first m--hide">
+                                        <span class="m-nav__section-text">
+                                            Quick Actions
+                                        </span>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-share"></i>
+                                            <span class="m-nav__link-text">
+                                                Activity
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-chat-1"></i>
+                                            <span class="m-nav__link-text">
+                                                Messages
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-info"></i>
+                                            <span class="m-nav__link-text">
+                                                FAQ
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__item">
+                                        <a href="" class="m-nav__link">
+                                            <i class="m-nav__link-icon flaticon-lifebuoy"></i>
+                                            <span class="m-nav__link-text">
+                                                Support
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="m-nav__separator m-nav__separator--fit"></li>
+                                    <li class="m-nav__item">
+                                        <a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+                                            Submit
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <!--begin::Portlet-->
+            <div class="m-portlet m-portlet--last m-portlet--responsive-mobile" id="main_portlet">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-progress">
+                        <!-- here can place a progress bar-->
+                    </div>
+                    <div class="m-portlet__head-wrapper">
+                        <div class="m-portlet__head-caption">
+
+                        </div>
+                        <div class="m-portlet__head-tools">
+                            <a routerLink="/publications" class="btn btn-outline-primary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+                                <span>
+                                    <i class="la la-arrow-left"></i>
+                                    <span>
+                                        Back
+                                    </span>
+                                </span>
+                            </a>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary  m-btn m-btn--icon m-btn--wide m-btn--md" (click)="create()">
+                                    <span>
+                                        <i class="la la-check"></i>
+                                        <span>
+                                            Save
+                                        </span>
+                                    </span>
+                                </button>
+                                <button type="button" class="btn btn-primary  dropdown-toggle dropdown-toggle-split m-btn m-btn--md" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false"></button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item">
+                                        <i class="la la-plus"></i>
+                                        Save & New
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="la la-copy"></i>
+                                        Save & Duplicate
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="la la-undo"></i>
+                                        Save & Close
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" routerLink="/setting/country">
+                                        <i class="la la-close"></i>
+                                        Cancel
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="m-portlet__body">
+                    <form [formGroup]="createForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form" >
+                        <!--begin: Form Body -->
+                        <div class="m-portlet__body">
+                            <div class="form-group m-form__group row">
+                                <label class="col-lg-2 col-form-label">
+                                    Publication Name:
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <!-- <input type="text" formControlName="FirstName" required name="FirstName" class="form-control m-input" placeholder="Publication Name"
+                                        value=""> -->
+                                        <select name="CategoryName" formControlName="PublicationCategoryId"  class="form-control m-input m_select_category" placeholder="Publication Name" data-live-search="true">
+                                            <option value="0">Select Any</option>
+                                            <option *ngFor="let category of categoryList" value="{{category.PublicationCategoryId}}">{{category.Name}}</option>
+                                        </select>
+                                </div>
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                        Description:
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <textarea type="text" formControlName="Description" name="Description" class="form-control m-input" placeholder="Eg: Alex"
+                                        value=""></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group row">
+                                <label class="col-lg-2 col-form-label">
+                                    Language:
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <div class="input-group">
+                                        <select name="Language" formControlName="Language" class="form-control m-input">
+                                            <option value="0">Select Any</option>
+                                            <option *ngFor="let language of languageList" value="{{language.RecordID}}">{{language.Language}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <label class="col-lg-2 col-form-label">
+                                    Edition (Primary Country):
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <div class="input-group">
+                                        <select name="EditionCountryId" formControlName="EditionCountryId" class="form-control m-bootstrap-select m_select_primary_country" data-live-search="true">
+                                            <option value="0">Select Any</option>
+                                            <option *ngFor="let primarycountry of PrimaryCountryList" value="{{primarycountry.Id}}">{{primarycountry.Name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                        Logo:
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <input type="file" (change)="fileChange($event)" formControlName="Logo" name="Logo" class="form-control m-input" value="" #fileInput>
+                                </div>
+                                <label class="col-lg-2 col-form-label">
+                                    Frequency:
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <div class="input-group">
+                                        <select name="PublicationFrequencyId" formControlName="PublicationFrequencyId" class="form-control m-input m_select_frequency">
+                                            <option value="0">Select Any</option>
+                                            <option *ngFor="let frequency of frequencyList" value="{{frequency.Id}}">{{frequency.Name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label">
+                                    Available Countries
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <div class="input-group"> 
+                                        <select #availCountry name="AvailableCountries"  id="AvailableCountries"  formControlName="AvailableCountries" (change)="onAddAvailableCountry($event.target.value)" class="form-control m-bootstrap-select m_select_country" data-live-search="true">
+                                            <option value="0">Select Any</option>
+                                            <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                    
+                                    <button *ngFor= " let country of availableCountryList" class="btn btn-success btn-sm m--margin-right-5 m--margin-bottom-5" type="button"><span>{{country.Name}} <i class="la la-close"></i></span></button>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group  m-form__group row">
+                                <label class="col-xl-2 col-lg-2 col-form-label ">
+                                    Edition Admins
+                                </label>
+                                <div class="col-xl-4 col-lg-4 localadminform">
+                                    <div class="input-group">
+                                        <!-- <select name="EditionAdmins" formControlName="EditionAdmins" class="form-control m-bootstrap-select m_select_edition_admin" data-live-search="true">
+                                            <option value="0">Select Any</option>
+                                            <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                        </select> -->
+                                        <select   class="form-control m-select2 m_select_edition_admin" id="m_select_edition_admin" multiple="multiple"  name="param">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                    <button *ngFor= "let edition_admin of EditionAdminArray; let j = index;" class="btn btn-success btn-sm m--margin-right-5 m--margin-bottom-5" (click)= "removeEditionAdmin(j)" type="button"><span>{{edition_admin.Name}}<i class="la la-close"></i></span></button>
+                                    
+                                </div>
+                            </div>
+                            <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                            <div class="m-form__heading">
+                                <h3 class="m-form__heading-title">
+                                    Local Admins
+                                    <i data-toggle="m-tooltip" data-width="auto" class="m-form__heading-help-icon flaticon-info" title="Some help text goes here" ></i>
+                                </h3>
+                            </div>
+                            <div class="form-group m-form__group align-items-center localadminform local"  formArrayName="LocalAdmins" *ngFor="let option of createForm.get('LocalAdmins').controls; let i = index;">
+                                <div [formGroupName]="i">
+                                    <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Country:
+                                        </label>
+                                        <div class="col-xl-4 col-lg-4">
+                                            <div class="input-group">
+                                                <select name="CountryId" formControlName="CountryId" data-id="{{i}}" #s class="form-control m-bootstrap-select m_select_country" (change)="add_admin_country(i, s.value)" data-live-search="true">
+                                                    <option value="0">Select Any</option>
+                                                    <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row"  >
+                                        <label class="col-lg-2 col-form-label">
+                                            Admin:
+                                        </label>
+                                        <div class="col-xl-4 col-lg-4">
+                                            <div class="input-group">
+                                                    <select  name="Admins" formControlName="Admins" data-id="{{i}}"  class="form-control m-select2 m_select_local_admin"   >
+                                                        </select>
+                                            </div>
+                                        </div>
+                                        <div  class="col-xl-6 col-lg-6">
+                                            <button *ngFor="let admin of localAdminArray[i]; let j = index" class="btn btn-success btn-sm m--margin-right-5 m--margin-bottom-5" type="button" (click)="removeAdmin(i , j)"><span>{{admin.Name}} <i class="la la-close"></i></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                    <div class="col-2"></div>
+                                    <div class="col-4 m--align-left">
+                                        <div (click)="addAdmin(i)" class="btn btn btn-sm btn-brand m-btn m-btn--icon m-btn--pill m-btn--wide">
+                                            <span>
+                                                <i class="la la-plus"></i>
+                                                <span>
+                                                    Add New Country
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group m-form__group row">
+                                    <label class="col-xl-2 col-lg-2 col-form-label">
+                                        * Websites:
+                                    </label>
+                                    <div class="col-xl-9 col-lg-9">
+                                        <select class="form-control m-select2" formControlName="SubApplications" id="subapplications" name="subapplications" multiple="multiple">
+                                        </select>
+                                        <!-- <span *ngIf="!formError" class="m-form__help">
+                                            Please select cause allowed websites
+                                        </span>
+                                        <span *ngIf="formError" class="m--font-danger" [hidden]="createForm.get('SubApplications').valid && createForm.get('SubApplications').dirty ">
+                                            Please select cause allowed websites
+                                        </span> -->
+                                    </div>
+                                </div>
+                            
+                            <!-- <div class="form-group m-form__group row">
+                                <label class="col-lg-2 col-form-label">
+                                    Country:
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <div class="input-group">
+                                        <select name="LocalCountryId" formControlName="LocalCountryId" class="form-control m-bootstrap-select m_select_country" data-live-search="true">
+                                            <option value="0">Select Any</option>
+                                            <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group m-form__group row">
+                                <label class="col-lg-2 col-form-label">
+                                    Admin:
+                                </label>
+                                <div class="col-xl-4 col-lg-4">
+                                    <div class="input-group">
+                                        <select name="LoalAdmin" formControlName="LoalAdmin" class="form-control m-input">
+                                            <option value="0">USA</option>
+                                            <option value="1">Frequency 1</option>
+                                            <option value="2">Frequency 2</option>
+                                            <option value="3">Frequency 3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                    <button class="btn btn-success btn-sm m--margin-right-5 m--margin-bottom-5" type="button"><span>Devansh <i class="la la-close"></i></span></button>
+                                    <button class="btn btn-success btn-sm m--margin-right-5 m--margin-bottom-5" type="button"><span>Sobin <i class="la la-close"></i></span></button>
+                                    <button class="btn btn-success btn-sm m--margin-right-5 m--margin-bottom-5" type="button"><span>Neema <i class="la la-close"></i></span></button>
+                                </div>
+                            </div>     -->
+                            
+                        
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--end::Portlet-->
+        </div>
+    </div>
+</div>

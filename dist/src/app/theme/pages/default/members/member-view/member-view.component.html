@@ -1,0 +1,159 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+    <div class="d-flex align-items-center">
+        <div class="mr-auto">
+            <h3 class="m-subheader__title">
+                Member Profile
+            </h3>
+        </div>
+    </div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+    <div class="row">
+        <div class="col-xl-3 col-lg-4">
+            <div class="m-portlet m-portlet--full-height">
+                <div class="m-portlet__body">
+                    <div class="m-card-profile">
+                        <div class="m-card-profile__title m--hide">
+                            Member Profile
+                        </div>
+                        <div class="m-card-profile__pic" *ngIf="mProfile">
+                            <div class="m-card-profile__pic-wrapper">
+                                <img src="{{mProfile.photo}}" alt="" />
+                            </div>
+                            <div>
+                                <a href="" class="m-link">
+                                    Change photo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="m-card-profile__details" *ngIf="mProfile">
+                            <span class="m-card-profile__name">
+                                {{mProfile.Salutation}} {{mProfile.FirstName | titlecase }} {{mProfile.LastName}}
+                            </span>
+                            <a href="" class="m-card-profile__email m-link">
+                                {{mProfile.Email}}
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="nav m-nav m-nav--hover-bg m-portlet-fit--sides" role="tablist">
+                        <li class="m-nav__separator m-nav__separator--fit"></li>
+                        <li class="m-nav__section m--hide">
+                            <span class="m-nav__section-text">
+                                Section
+                            </span>
+                        </li>
+                        <li class="nav-item m-nav__item m-tabs__item">
+                            <a class="m-nav__link" routerLinkActive="active" data-toggle="tab" routerLink="/members/{{memberId}}" role="tab">
+                                <i class="m-nav__link-icon la la-user"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Profile Summary
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item m-nav__item m-tabs__item">
+                            <a class="m-nav__link" data-toggle="tab" routerLink="/members/{{memberId}}/family" role="tab">
+                                <i class="m-nav__link-icon la la-users"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Family members
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item m-nav__item m-tabs__item">
+                            <a class="m-nav__link" data-toggle="tab" routerLink="/members/{{memberId}}/address"  role="tab">
+                                <i class="m-nav__link-icon la la-map-marker"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Address management
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="nav-item m-nav__item m-tabs__item">
+                            <a class="m-nav__link" data-toggle="tab" routerLink="/members/{{memberId}}/card" role="tab">
+                                <i class="m-nav__link-icon la la-credit-card"></i>
+                                <span class="m-nav__link-title">
+                                    <span class="m-nav__link-wrap">
+                                        <span class="m-nav__link-text">
+                                            Card management
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="m-portlet__body-separator"></div>
+                    <div class="m-widget1 m-widget1--paddingless">
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Member Profit
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                        Awerage Weekly Profit
+                                    </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-brand">
+                                        +$17,800
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Orders
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                        Weekly Customer Orders
+                                    </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-danger">
+                                        +1,800
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-widget1__item">
+                            <div class="row m-row--no-padding align-items-center">
+                                <div class="col">
+                                    <h3 class="m-widget1__title">
+                                        Issue Reports
+                                    </h3>
+                                    <span class="m-widget1__desc">
+                                        System bugs and issues
+                                    </span>
+                                </div>
+                                <div class="col m--align-right">
+                                    <span class="m-widget1__number m--font-success">
+                                        -27,49%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-9 col-lg-8">
+            <div class="m-portlet m-portlet--full-height">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+diff a/theme/src/sass/demo/demo10/header/_topbar.scss b/theme/src/sass/demo/demo10/header/_topbar.scss	(rejected hunks)
+@@ -98,11 +98,11 @@
+                 > .m-nav__item.m-nav__item--#{$name} {                
+                     > .m-nav__link .m-nav__link-icon {
+                         .m-nav__link-icon-wrapper {
+-                            @include transition(all 0.3s ease);
++                            transition: all 0.3s ease;
+                             background: rgba( array-get($color, base), 0.1 );
+ 
+                             > i {  
+-                                @include transition(all 0.3s ease);
++                                transition: all 0.3s ease;
+                                 color: array-get($color, base);
+                             }
+                         }

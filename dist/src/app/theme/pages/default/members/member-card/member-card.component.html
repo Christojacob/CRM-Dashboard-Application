@@ -1,0 +1,368 @@
+<div class="m-form">
+    <div class="m-portlet__body">
+        <div class="row align-items-center m--margin-bottom-10">
+            <div class="col-xl-8 order-2 order-xl-1">
+            </div>
+            <div class="col-xl-4 order-1 order-xl-2 m--align-right">
+                <a href="" (click)="addCardInit()" class="btn btn-primary m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill">
+                    <span>
+                        <i class="la la-cart-plus"></i>
+                        <span>
+                            Add Card
+                        </span>
+                    </span>
+                </a>
+                <div class="m-separator m-separator--dashed d-xl-none"></div>
+            </div>
+        </div>
+        <!-- Begin Family tab -->
+        <div class="m-portlet m-portlet--primary m-portlet--head-solid-bg m-portlet--bordered">
+            <div class="m-portlet__head">
+                <div class="m-portlet__head-caption">
+                    <div class="m-portlet__head-title">
+                        <span class="m-portlet__head-icon">
+                            <i class="flaticon-users"></i>
+                        </span>
+                        <h3 class="m-portlet__head-text">
+                            Credit/Debit cards
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="m_datatables" id="ajax_data"></div> -->
+        </div>
+        <!-- End of family tab -->
+    </div>
+</div>
+
+
+<div class="modal fade" id="m_modal_7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Add card
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <!-- Payment left side buttons -->
+                    <div class="col-lg-3">
+                        <select name="CountryId" [(ngModel)]="cardPaymentCountry" class="form-control m-input">
+                            <option value="0">Select Any</option>
+                            <option *ngFor="let country of primaryCountryList" value="{{country.Id}}">{{country.Name}}</option>
+                        </select>
+                        {{cardPaymentCountry}}
+                        <div class="btn-group-vertical btn-block m--margin-top-30" role="group" aria-label="Vertical button group">
+                            <button type="button" class="btn" [ngClass]="[(savePaymentMethod=='credit_or_debt')?'btn-metal':'btn-secondary']"
+                                (click)="savePaymentMethod='credit_or_debt'">
+                                Credit/Debit Card
+                            </button>
+                            <button type="button" class="btn" [ngClass]="[(savePaymentMethod=='ach')?'btn-metal':'btn-secondary']"
+                                (click)="savePaymentMethod='ach'">
+                                ACH
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Close of Payment left side buttons -->
+                    <!-- Payment right side contents -->
+                    <div class="col-lg-9">
+                        <!-- Credit Card Option -->
+                        <!-- Brain tree nonce creation form -->
+                        <div *ngIf="savePaymentMethod=='credit_or_debt' && cardPaymentCountry!=0 ">
+                            <ngx-braintree [getClientToken]="getClientToken.bind(this)">
+                                <div class="ngxButtons">
+                                    <style>
+                                        button {
+                                            background-color: #5867dd;
+                                            color: #ffffff;
+                                            border: none;
+                                            border-radius: 4px;
+                                            height: 40px;
+                                            line-height: 40px;
+                                            font-size: 16px;
+                                            cursor: pointer;
+                                        }
+
+                                        button:disabled {
+                                            background-color: #5867dd;
+                                            opacity: .65;
+                                            color: #ffffff;
+                                            border: none;
+                                            border-radius: 4px;
+                                            height: 40px;
+                                            line-height: 40px;
+                                            font-size: 16px;
+                                            cursor: not-allowed;
+                                        }
+
+                                        .ngxButtons {
+                                            padding: 30px;
+                                            text-align: right;
+                                        }
+                                    </style>
+                                    <button ngxPay>Save</button>
+                                </div>
+                            </ngx-braintree>
+                        </div>
+                        <!-- Close of Brain tree nonce creation form -->
+                        <!-- Close of Credit Card Option -->
+
+                        <!-- ACH option -->
+                        <div class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed" *ngIf="savePaymentMethod=='ach'">
+                            <div class="form-group m-form__group row">
+                                <div class="col-lg-6 m--margin-bottom-5">
+                                    <label>
+                                        AccountHolder:
+                                    </label>
+                                    <input type="text" class="form-control m-input" name="AccountHolder" placeholder="AccountHolder">
+                                </div>
+                                <div class="col-lg-6 m--margin-bottom-5">
+                                    <label>
+                                        AccountNumber:
+                                    </label>
+                                    <input type="text" class="form-control m-input" name="AccountNumber" placeholder="AccountNumber">
+                                </div>
+                                <div class="col-lg-6 m--margin-bottom-5">
+                                    <label>
+                                        RoutingNumber:
+                                    </label>
+                                    <input type="text" class="form-control m-input" name="RoutingNumber" placeholder="RoutingNumber">
+                                </div>
+                                <div class="col-lg-6 m--margin-bottom-5">
+                                    <label>
+                                        Account Type:
+                                    </label>
+                                    <select class="form-control m-bootstrap-select m-bootstrap-select--air m_select_accountype"
+                                        name="AccountType">
+                                        <option value="checking">Checking</option>
+                                        <option value="saving">Saving</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="m-form__actions m-form__actions m--align-right">
+                                <button class="btn btn-primary" (click)="createPayment()">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Close of ACH option -->
+
+                    </div>
+                    <!-- Close of Payment right side contents -->
+                </div>
+
+
+                <!-- <form [formGroup]="cardCreateForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+                    <!--begin: Form Body -->
+                <!--    <div class="m-portlet__body">
+                        <div class="row">
+                            <div class="col-xl-8 offset-xl-2">
+                                <div class="m-form__section m-form__section--first">
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * AddressType:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <select formControlName="AddressType" name="AddressType" class="form-control m-input">
+                                                <option value="0">Select Any</option>
+                                                <option value="1">Billing address</option>
+                                                <option value="2">Shipping address</option>
+                                                <option value="3">Both</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Address:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Address1" name="Address1" class="form-control m-input" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Address2" name="Address2" class="form-control m-input" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * City:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="City" name="City" class="form-control m-input" value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Country:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <div class="input-group">
+                                                <select name="CountryId" formControlName="CountryId" class="form-control m-bootstrap-select m_select_country" data-live-search="true"
+                                                    (change)="countryUpdate()">
+                                                    <option value="0">Select Any</option>
+                                                    <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * State:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <div class="input-group">
+                                                <select name="StateId" formControlName="StateId" class="form-control m-bootstrap-select m_select_state" data-live-search="true">
+                                                    <option value="0">Select Any</option>
+                                                    <option *ngFor="let state of stateList" value="{{state.Id}}">{{state.Name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Zip Code:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Zip" name="Zip" class="form-control m-input" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form> -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" (click)="addressCreate()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="m_modal_7" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                    Add address
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">
+                        &times;
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addressCreateForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+                    <!--begin: Form Body -->
+                    <div class="m-portlet__body">
+                        <div class="row">
+                            <div class="col-xl-8 offset-xl-2">
+                                <div class="m-form__section m-form__section--first">
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * AddressType:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <select formControlName="AddressType" name="AddressType" class="form-control m-input">
+                                                <option value="0">Select Any</option>
+                                                <option value="1">Billing address</option>
+                                                <option value="2">Shipping address</option>
+                                                <option value="3">Both</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Address:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Address1" name="Address1" class="form-control m-input"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Address2" name="Address2" class="form-control m-input"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * City:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="City" name="City" class="form-control m-input"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Country:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <div class="input-group">
+                                                <select name="CountryId" formControlName="CountryId" class="form-control m-bootstrap-select m_select_country"
+                                                    data-live-search="true" (change)="countryUpdate()">
+                                                    <option value="0">Select Any</option>
+                                                    <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * State:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <div class="input-group">
+                                                <select name="StateId" formControlName="StateId" class="form-control m-bootstrap-select m_select_state"
+                                                    data-live-search="true">
+                                                    <option value="0">Select Any</option>
+                                                    <option *ngFor="let state of stateList" value="{{state.Id}}">{{state.Name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-xl-3 col-lg-3 col-form-label">
+                                            * Zip Code:
+                                        </label>
+                                        <div class="col-xl-9 col-lg-9">
+                                            <input type="text" formControlName="Zip" name="Zip" class="form-control m-input"
+                                                value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" (click)="addressCreate()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

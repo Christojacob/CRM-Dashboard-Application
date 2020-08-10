@@ -1,0 +1,346 @@
+<div class="m-portlet__body">
+    <!-- Begin profile summary tab -->
+    <div class="m-portlet m-portlet--primary m-portlet--head-solid-bg m-portlet--bordered">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon">
+                        <i class="flaticon-profile"></i>
+                    </span>
+                    <h3 class="m-portlet__head-text">
+                        Profile Summary
+                    </h3>
+                </div>
+            </div>
+            <div class="m-portlet__head-tools">
+                <ul class="m-portlet__nav">
+                    <li class="m-portlet__nav-item">
+                        <a href="#" (click)="memberEditUpdate()" class="m-portlet__nav-link bn btn-secondary m-btn m-btn--air m-btn--icon m-btn--icon-only m-btn--pill"
+                            title="Edit">
+                            <i class="la la-edit"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+            <form [formGroup]="createForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form"
+                *ngIf="memberEdit==true">
+                <!--begin: Form Body -->
+                <div class="m-portlet__body">
+                    <div class="form-group m-form__group row">
+                        <label class="col-lg-2 col-form-label">
+                            Name:
+                        </label>
+                        <div class="col-lg-1">
+                            <div class="input-group">
+                                <select name="SalutationId" formControlName="SalutationId" class="form-control m-input">
+                                    <option value="0">Select Any</option>
+                                    <option *ngFor="let salutation of salutationList" value="{{salutation.RecordID}}">{{salutation.Salutation}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" formControlName="FirstName" required name="FirstName" class="form-control m-input"
+                                placeholder="First Name" value="">
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="text" formControlName="LastName" required name="LastName" class="form-control m-input"
+                                placeholder="Last Name" value="">
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-lg-2 col-form-label">
+                            Gender
+                        </label>
+                        <div class="col-xl-3 col-lg-3">
+                            <div class="input-group">
+                                <select name="Gender" formControlName="Gender" class="form-control m-input">
+                                    <option value="0">Select Any</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-xl-2 col-lg-2 col-form-label">
+                            Email:
+                        </label>
+                        <div class="col-xl-5 col-lg-5">
+                            <input type="text" formControlName="Email" required name="Email" class="form-control m-input"
+                                placeholder="Eg: ABC@gmail.com" value="">
+                        </div>
+                        <div class="col-lg-3 col-lg-3">
+                            <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                <input type="checkbox" formControlName="IsCreateAccount" value="1" (change)="$event.target.checked ? (this.createForm.controls.IsCreateAccount.setValue(1)) : this.createForm.controls.IsCreateAccount.setValue(0)">
+                                Create account
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-xl-2 col-lg-2 col-form-label">
+                            * User Name:
+                        </label>
+                        <div class="col-xl-5 col-lg-5">
+                            <input type="text" formControlName="UserName" required name="UserName" class="form-control m-input"
+                                placeholder="Eg: Alex" value="">
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-xl-2 col-lg-2 col-form-label">
+                            * Mobile Number:
+                        </label>
+                        <div class="col-xl-5 col-lg-5">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="la la-phone"></i>
+                                    </span>
+                                </div>
+                                <input type="text" formControlName="MobileNumber" required name="MobileNumber" class="form-control m-input"
+                                    placeholder="Eg: 9895000000" value="">
+                            </div>
+                        </div>
+                        <div class="col-xl-5 col-lg-5">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="la la-phone"></i>
+                                    </span>
+                                </div>
+                                <input type="text" formControlName="SecondaryNumber" required name="SecondaryNumber"
+                                    class="form-control m-input" placeholder="Eg: 9895000000" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-xl-2 col-lg-2 col-form-label">
+                            Dob:
+                        </label>
+                        <div class="col-xl-5 col-lg-5">
+                            <div class="input-group date">
+                                <input type="text" class="form-control m-input" formControlName="Dob" placeholder="DOB"
+                                    id="dob">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="la la-calendar-check-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group m-form__group row">
+                            <label class="col-xl-2 col-lg-2 col-form-label">
+                                * Photo:
+                            </label>
+                            <div class="col-xl-5 col-lg-5">
+                                <input type="file" (change)="fileChange($event)" required name="Photo"
+                                    class="form-control m-input" value="" #fileInput>
+                            </div>
+                        </div> -->
+                    <div class="form-group m-form__group row">
+                        <label class="col-xl-2 col-lg-2 col-form-label">
+                            Country
+                        </label>
+                        <div class="col-xl-5 col-lg-5">
+                            <div class="input-group">
+                                <select name="CountryId" formControlName="CountryId" class="form-control m-bootstrap-select m_select_country"
+                                    data-live-search="true">
+                                    <option value="0">Select Any</option>
+                                    <option *ngFor="let country of countryList" value="{{country.Id}}">{{country.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-separator m-separator--dashed m-separator--lg"></div>
+                    <div class="m-form__heading">
+                        <h3 class="m-form__heading-title">
+                            Member preference settings
+                            <i data-toggle="m-tooltip" data-width="auto" class="m-form__heading-help-icon flaticon-info"
+                                title="Some help text goes here"></i>
+                        </h3>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <label class="col-xl-3 col-lg-3 col-form-label">
+                            Prefered Language Of Communication
+                        </label>
+                        <div class="col-xl-5 col-lg-5">
+                            <div class="input-group">
+                                <select name="PreferedLanguageOfCommunication" formControlName="PreferedLanguageOfCommunication"
+                                    class="form-control m-input">
+                                    <option value="0">Select Any</option>
+                                    <option *ngFor="let language of languageList" value="{{language.RecordID}}">{{language.Language}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group m-form__group row">
+                        <div class="col-lg-6 m-form__group-sub">
+                            <label class="form-control-label">
+                                Communications:
+                            </label>
+                            <div class="m-radio-inline">
+                                <label class="m-radio m-radio--solid m-radio--brand">
+                                    <input type="radio" formControlName="PreferedModeOfContact" value="1" [checked]="createForm.get('PreferedModeOfContact').value == 1">
+                                    Email
+                                    <span></span>
+                                </label>
+                                <label class="m-radio m-radio--solid m-radio--brand">
+                                    <input type="radio" formControlName="PreferedModeOfContact" value="2" [checked]="createForm.get('PreferedModeOfContact').value == 2">
+                                    Phone
+                                    <span></span>
+                                </label>
+                                <label class="m-radio m-radio--solid m-radio--brand">
+                                    <input type="radio" formControlName="PreferedModeOfContact" value="3" [checked]="createForm.get('PreferedModeOfContact').value == 3">
+                                    SMS
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 m-form__group-sub">
+                            <label class="form-control-label">
+                                * DND settings:
+                            </label>
+                            <div class="m-checkbox-inline">
+                                <label class="m-checkbox m-checkbox--solid m-checkbox--brand">
+                                    <input type="checkbox" formControlName="EmailOptutFlag" (change)="$event.target.checked ? (this.createForm.controls.EmailOptutFlag.setValue(1)) : this.createForm.controls.EmailOptutFlag.setValue(0)">
+                                    Email OptutFlag
+                                    <span></span>
+                                </label>
+                                <label class="m-checkbox m-checkbox--solid  m-checkbox--brand">
+                                    <input type="checkbox" formControlName="CallOptoutFlag" (change)="$event.target.checked ? (this.createForm.controls.CallOptoutFlag.setValue(1)) : this.createForm.controls.CallOptoutFlag.setValue(0)">
+                                    CallOptoutFlag
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row" *ngIf="memberEdit==false">
+                <div class="col-md-6 col-lg-4 col-sm-12">
+                    <div class="m-widget13">
+                        <div class="m-widget13__item">
+                            <span class="m-widget13__desc m--align-right">
+                                Name:
+                            </span>
+                            <span class="m-widget13__text m-widget13__text-bolder">
+                                <span *ngIf="mProfile">{{mProfile.Salutation}}
+                                    {{mProfile.FirstName}} {{mProfile.LastName}}</span>
+                            </span>
+                        </div>
+                        <div class="m-widget13__item">
+                            <span class="m-widget13__desc m--align-right">
+                                Gender:
+                            </span>
+                            <span class="m-widget13__text m-widget13__text-bolder">
+                                <span *ngIf="mProfile">{{mProfile.gender}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-4">
+                    <div class="m-widget13">
+                        <div class="m-widget13__item">
+                            <span class="m-widget13__desc m--align-right">
+                                Email:
+                            </span>
+                            <span class="m-widget13__text m-widget13__text-bolder">
+                                <span *ngIf="mProfile">{{mProfile.Email}}</span>
+                            </span>
+                        </div>
+                        <div class="m-widget13__item">
+                            <span class="m-widget13__desc m--align-right">
+                                MobileNumber:
+                            </span>
+                            <span class="m-widget13__text m-widget13__text-bolder">
+                                <span *ngIf="mProfile">{{mProfile.MobileNumber}}
+                                    {{mProfile.SecondaryNumber}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12 col-lg-4">
+                    <div class="m-widget13">
+                        <div class="m-widget13__item">
+                            <span class="m-widget13__desc m--align-right">
+                                User Name:
+                            </span>
+                            <span class="m-widget13__text m-widget13__text-bolder">
+                                <span *ngIf="mProfile">{{mProfile.UserName}}</span>
+                            </span>
+                        </div>
+                        <div class="m-widget13__item">
+                            <span class="m-widget13__desc m--align-right">
+                                Country Name:
+                            </span>
+                            <span class="m-widget13__text m-widget13__text-bolder">
+                                <span *ngIf="mProfile">{{mProfile.CountryName}}</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of profile summary tab -->
+    <!-- Begin donation summary tab -->
+    <div class="m-portlet m-portlet--primary m-portlet--head-solid-bg m-portlet--bordered">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon">
+                        <i class="flaticon-profile"></i>
+                    </span>
+                    <h3 class="m-portlet__head-text">
+                        Donation Summary
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+
+        </div>
+    </div>
+    <!-- End of Donation summary tab -->
+    <!-- Begin Subscription summary tab -->
+    <div class="m-portlet m-portlet--primary m-portlet--head-solid-bg m-portlet--bordered">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon">
+                        <i class="flaticon-profile"></i>
+                    </span>
+                    <h3 class="m-portlet__head-text">
+                        Subscription Summary
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+
+        </div>
+    </div>
+    <!-- End of subscription summary tab -->
+    <!-- Begin event summary tab -->
+    <div class="m-portlet m-portlet--primary m-portlet--head-solid-bg m-portlet--bordered">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <span class="m-portlet__head-icon">
+                        <i class="flaticon-profile"></i>
+                    </span>
+                    <h3 class="m-portlet__head-text">
+                        Event Summary
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+
+        </div>
+    </div>
+    <!-- End of event summary tab -->
+</div>

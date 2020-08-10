@@ -1,0 +1,202 @@
+<!-- BEGIN: Subheader -->
+<div class="m-subheader" appunwraptag="">
+	<div class="d-flex align-items-center">
+		<div class="mr-auto">
+			<h3 class="m-subheader__title m-subheader__title--separator">
+				Edit Family Relationship
+			</h3>
+			<ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
+				<li class="m-nav__item m-nav__item--home">
+					<a href="#" class="m-nav__link m-nav__link--icon">
+						<i class="m-nav__link-icon la la-home"></i>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Settings
+						</span>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Family Relationship
+						</span>
+					</a>
+				</li>
+				<li class="m-nav__separator">
+					-
+				</li>
+				<li class="m-nav__item">
+					<a href="" class="m-nav__link">
+						<span class="m-nav__link-text">
+							Edit Family Relationship
+						</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<div class="m-dropdown m-dropdown--inline m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push" m-dropdown-toggle="hover" aria-expanded="true">
+				<a href="#" class="m-portlet__nav-link btn btn-lg btn-secondary  m-btn m-btn--outline-2x m-btn--air m-btn--icon m-btn--icon-only m-btn--pill  m-dropdown__toggle">
+					<i class="la la-plus m--hide"></i>
+					<i class="la la-ellipsis-h"></i>
+				</a>
+				<div class="m-dropdown__wrapper">
+					<span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+					<div class="m-dropdown__inner">
+						<div class="m-dropdown__body">
+							<div class="m-dropdown__content">
+								<ul class="m-nav">
+									<li class="m-nav__section m-nav__section--first m--hide">
+										<span class="m-nav__section-text">
+											Quick Actions
+										</span>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<i class="m-nav__link-icon flaticon-share"></i>
+											<span class="m-nav__link-text">
+												Activity
+											</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<i class="m-nav__link-icon flaticon-chat-1"></i>
+											<span class="m-nav__link-text">
+												Messages
+											</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<i class="m-nav__link-icon flaticon-info"></i>
+											<span class="m-nav__link-text">
+												FAQ
+											</span>
+										</a>
+									</li>
+									<li class="m-nav__item">
+										<a href="" class="m-nav__link">
+											<i class="m-nav__link-icon flaticon-lifebuoy"></i>
+											<span class="m-nav__link-text">
+												Support
+											</span>
+										</a>
+									</li>
+									<li class="m-nav__separator m-nav__separator--fit"></li>
+									<li class="m-nav__item">
+										<a href="#" class="btn btn-outline-danger m-btn m-btn--pill m-btn--wide btn-sm">
+											Submit
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- END: Subheader -->
+<div class="m-content">
+	<div class="row">
+		<div class="col-lg-12">
+			<!--begin::Portlet-->
+			<div class="m-portlet m-portlet--last m-portlet--head-lg m-portlet--responsive-mobile" id="main_portlet">
+				<div class="m-portlet__head">
+					<div class="m-portlet__head-progress">
+						<!-- here can place a progress bar-->
+					</div>
+					<div class="m-portlet__head-wrapper">
+						<div class="m-portlet__head-caption">
+							<div class="m-portlet__head-title">
+								<h3 class="m-portlet__head-text">
+									Edit Family Relationship
+								</h3>
+							</div>
+						</div>
+						<div class="m-portlet__head-tools">
+							<a routerLink="/setting/family-relationship" class="btn btn-secondary m-btn m-btn--icon m-btn--wide m-btn--md m--margin-right-10">
+								<span>
+									<i class="la la-arrow-left"></i>
+									<span>
+										Back
+									</span>
+								</span>
+							</a>
+							<div class="btn-group">
+								<button type="button" class="btn btn-accent  m-btn m-btn--icon m-btn--wide m-btn--md" (click)="update()">
+									<span>
+										<i class="la la-check"></i>
+										<span>
+											Save
+										</span>
+									</span>
+								</button>
+								<button type="button" class="btn btn-accent  dropdown-toggle dropdown-toggle-split m-btn m-btn--md" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+								<div class="dropdown-menu dropdown-menu-right">
+									<a class="dropdown-item" (click)="update()">
+										<i class="la la-plus"></i>
+										Save & New
+									</a>
+									<a class="dropdown-item" href="#">
+										<i class="la la-copy"></i>
+										Save & Duplicate
+									</a>
+									<a class="dropdown-item" href="#">
+										<i class="la la-undo"></i>
+										Save & Close
+									</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" routerLink="/setting/states">
+										<i class="la la-close"></i>
+										Cancel
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="m-portlet__body">
+					<form [formGroup]="createForm" class="m-form m-form--label-align-left- m-form--state-" id="m_form">
+						<!--begin: Form Body -->
+						<div class="m-portlet__body">
+							<div class="row">
+								<div class="col-xl-8 offset-xl-2">
+									<div class="m-form__section m-form__section--first">
+										<div class="form-group m-form__group row">
+											<label class="col-xl-3 col-lg-3 col-form-label">
+												* Name:
+											</label>
+											<div class="col-xl-9 col-lg-9">
+												<input type="text" formControlName="RelationshipName" required name="RelationshipName" class="form-control m-input" placeholder="Eg: Father" value="">
+												<span *ngIf="!formError" class="m-form__help">
+													Please enter the relationship name													
+												</span>
+												<span *ngIf="formError" class="m--font-danger" [hidden]="createForm.get('RelationshipName').valid">
+													Please enter the relationship name													
+												</span>
+											</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--end::Portlet-->
+		</div>
+	</div>
+</div>
